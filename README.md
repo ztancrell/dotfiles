@@ -87,6 +87,7 @@ Configs are matched to installed packages (`pacman -Qqe`). Browser profiles, cac
 | `~/.p10k.zsh` | cachyos-zsh-config |
 | `~/.dmrc` | ly (default session) |
 | `~/.fehbg` | feh (wallpaper script) |
+| `~/.wallpapers/` | feh/openbox wallpapers (artstation, berserk, sst, templars) |
 | `~/redshift-cli.sh` | redshift (tray launcher) |
 | `~/.config/openbox/` | openbox |
 | `~/.config/tint2/` | tint2 |
