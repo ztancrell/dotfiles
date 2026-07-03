@@ -418,17 +418,17 @@
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
-        <command>amixer set Master 5%+ unmute</command>
+        <command>sh -c 'amixer set Master 5%+ unmute; paplay ~/.config/openbox/sound/audio-volume-change.oga'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioLowerVolume">
       <action name="Execute">
-        <command>amixer set Master 5%- unmute</command>
+        <command>sh -c 'amixer set Master 5%- unmute; paplay ~/.config/openbox/sound/audio-volume-change.oga'</command>
       </action>
     </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
-        <command>amixer set Master toggle</command>
+        <command>sh -c 'amixer set Master toggle; paplay ~/.config/openbox/sound/audio-volume-change.oga'</command>
       </action>
     </keybind>
     <keybind key="XF86ScreenSaver">
