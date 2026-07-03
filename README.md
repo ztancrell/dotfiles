@@ -78,14 +78,62 @@ config status -u
 
 ## Currently Tracked
 
-| Path | Description |
-|------|-------------|
-| `~/.zshrc` | Zsh shell config (includes `config` function) |
-| `~/.p10k.zsh` | Powerlevel10k prompt theme |
-| `~/.config/fastfetch/` | Fastfetch system info display |
-| `~/.config/fish/` | Fish shell config |
-| `~/.config/gtk-3.0/settings.ini` | GTK 3 theme settings |
-| `~/.config/gtk-4.0/gtk.css` | GTK 4 custom styles |
-| `~/.config/Cursor/User/settings.json` | Cursor editor settings |
+Configs are matched to installed packages (`pacman -Qqe`). Browser profiles, caches, and credentials are excluded.
+
+### Shell & Desktop
+| Path | Package |
+|------|---------|
+| `~/.zshrc` | zsh |
+| `~/.p10k.zsh` | cachyos-zsh-config |
+| `~/.config/openbox/` | openbox |
+| `~/.config/tint2/` | tint2 |
+| `~/.config/lxpanel/` | lxpanel |
+| `~/.config/obmenu-generator/` | obmenu-generator |
+| `~/.config/autostart/` | xdg-autostart |
+| `~/.config/systemd/user/` | user services (psd, shelly, pulse-mic-gain) |
+
+### GTK & Appearance
+| Path | Package |
+|------|---------|
+| `~/.config/gtk-2.0/` | gtk |
+| `~/.config/gtk-3.0/settings.ini` | gtk |
+| `~/.config/gtk-4.0/gtk.css` | gtk |
+| `~/.config/gtkrc` | gtk |
+| `~/.config/gtkrc-2.0` | gtk |
+| `~/.config/mimeapps.list` | xdg |
+| `~/.config/user-dirs.dirs` | xdg-user-dirs |
+| `~/.config/user-dirs.locale` | xdg-user-dirs |
+
+### Apps
+| Path | Package |
+|------|---------|
+| `~/.config/fastfetch/` | fastfetch |
+| `~/.config/flameshot/` | flameshot |
+| `~/.config/htop/htoprc` | htop |
+| `~/.config/micro/` | micro (settings + colorschemes) |
+| `~/.config/mousepad/` | mousepad |
+| `~/.config/xed/` | xed |
+| `~/.config/Thunar/` | thunar |
+| `~/.config/xarchiver/` | xarchiver |
+| `~/.config/audacious/` | audacious |
+| `~/.config/bleachbit/` | bleachbit-git |
+| `~/.config/vlc/` | vlc-plugins-all |
+| `~/.config/pavucontrol.ini` | pavucontrol |
+| `~/.config/psd/` | profile-sync-daemon |
+| `~/.config/shelly/` | shelly |
+| `~/.config/lact/` | lact-git |
+| `~/.config/cachyos/` | cachyos-* |
+| `~/.config/Cursor/User/settings.json` | cursor-nightly-bin |
+| `~/.config/obs-studio/basic/` | obs-studio-git (scenes + profiles) |
+| `~/.config/obs-studio/global.ini` | obs-studio-git |
+| `~/.config/obs-studio/user.ini` | obs-studio-git |
+| `~/.config/heroic/config.json` | heroic-games-launcher-bin |
+| `~/.config/qBittorrent/qBittorrent.conf` | qbittorrent |
+
+### Gaming
+| Path | Package |
+|------|---------|
+| `~/.config/vkbasalt/` | vkbasalt |
+| `~/.config/MangoHud/MangoHud.conf` | gamemode |
 
 Add more configs over time with `config add <path>`.

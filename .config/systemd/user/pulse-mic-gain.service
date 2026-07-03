@@ -1,0 +1,11 @@
+[Unit]
+Description=Keep PulseAudio/PipeWire microphone volume locked
+
+[Service]
+Type=simple
+ExecStart=%h/scripts/pulse-mic-lock.sh
+Restart=always
+RestartSec=1
+
+[Install]
+WantedBy=default.target
