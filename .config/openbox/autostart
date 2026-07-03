@@ -1,0 +1,20 @@
+# polkit agent (if present)
+# /usr/libexec/polkit-gnome-authentication-agent-1 &
+
+# compositor
+fastcompmgr &
+sleep 1
+
+# xrandr
+xrandr --output HDMI-1 --primary --pos 0x0 \
+       --output DP-3 --pos 1920x0
+
+# nightlight (only if script exists)
+# /home/zpt/zpt/redshift-cli.sh start
+
+# wallpaper (FIXED: removed trailing '>')
+feh --bg-fill --randomize -r ~/.wallpapers/artstation ~/.wallpapers/sst ~/.wallpapers/b
+
+# tint2 and dunst
+tint2 -c /home/zpt/.config/tint2/horizontal-text-only.tint2rc &
+dunst &
