@@ -1,12 +1,14 @@
-# Linux Dotfiles
+# dotfiles
 
-Bare Git repository tracking selected configuration files from `$HOME`.
+A simple `$HOME` for my dotfiles. :3
 
-## How It Works
+Bare git repo at `~/.dotfiles`. Files stay where they are — I only track what I `config add`.
 
-- **Git directory:** `~/.dotfiles` (bare repo)
-- **Work tree:** `$HOME` (your actual config files stay in place)
-- **Command:** `config` — a shell function defined in `~/.zshrc`
+Stack is mostly openbox + ly + tint2 on CachyOS. Wallpapers included because feh cares.
+
+## `config`
+
+Defined in `~/.zshrc`:
 
 ```zsh
 function config() {
@@ -14,156 +16,63 @@ function config() {
 }
 ```
 
-Only files you explicitly `config add` are tracked. Untracked home files are hidden from `config status`.
+`config status` hides untracked home junk. `config status -u` if you want the full mess.
 
-## Daily Workflow
+## day to day
 
 ```bash
-# Check what's changed
 config status
-
-# Track a new config file or directory
 config add ~/.config/some-app
-
-# Commit changes
-config commit -m "Update fastfetch config"
-
-# View history
-config log --oneline
-
-# Push to remote (after setting one up)
+config commit -m "whatever"
 config push
 ```
 
-## Adding a Remote
+## new machine
 
 ```bash
-# Create a private repo on GitHub/GitLab, then:
-config remote add origin git@github.com:YOUR_USER/linux-dotfiles.git
-config push -u origin main
-```
+git clone --bare git@github.com:ztancrell/dotfiles.git ~/.dotfiles
 
-## Restore on a New Machine
+# stick this in ~/.zshrc
+function config() {
+  git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+}
 
-```bash
-# 1. Clone the bare repo
-git clone --bare git@github.com:YOUR_USER/linux-dotfiles.git ~/.dotfiles
-
-# 2. Add the config function to ~/.zshrc (or run directly):
-alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
-
-# 3. Checkout tracked files (only adds/updates tracked paths)
 config checkout
-
-# 4. Reload shell
 source ~/.zshrc
 ```
 
-If a file already exists and differs, back it up first:
+File already there and different? back it up first:
 
 ```bash
 mv ~/.zshrc ~/.zshrc.bak
 config checkout -- .zshrc
 ```
 
-## Safety
-
-Sensitive paths are listed in `~/.dotfiles/info/exclude` (SSH keys, browser profiles, credentials, caches). Always review `config status` before committing.
-
-To see all untracked files (normally hidden):
+System stuff under `~/etc/` is separate — deploy with sudo:
 
 ```bash
-config status -u
+sudo ~/etc/install.sh
+sudo ~/etc/install.sh ly/config.ini   # one file
 ```
 
-## Currently Tracked
+## what's in here
 
-Configs are matched to installed packages (`pacman -Qqe`). Browser profiles, caches, and credentials are excluded.
+**shell** — `.zshrc`, `.p10k.zsh`, `.dmrc`
 
-### Shell & Desktop
-| Path | Package |
-|------|---------|
-| `~/.zshrc` | zsh |
-| `~/.p10k.zsh` | cachyos-zsh-config |
-| `~/.dmrc` | ly (default session) |
-| `~/.fehbg` | feh (wallpaper script) |
-| `~/.wallpapers/` | feh/openbox wallpapers (artstation, berserk, sst, templars) |
-| `~/redshift-cli.sh` | redshift (tray launcher) |
-| `~/.config/openbox/` | openbox |
-| `~/.config/tint2/` | tint2 |
-| `~/.config/lxpanel/` | lxpanel |
-| `~/.config/obmenu-generator/` | obmenu-generator |
-| `~/.config/autostart/` | xdg-autostart |
-| `~/.config/systemd/user/` | user services (psd, shelly, pulse-mic-gain) |
+**desktop** — openbox (with ui sounds), tint2, lxpanel, obmenu-generator, autostart, feh wallpapers, `~/redshift-cli.sh`
 
-### GTK & Appearance
-| Path | Package |
-|------|---------|
-| `~/.config/gtk-2.0/` | gtk |
-| `~/.config/gtk-3.0/settings.ini` | gtk |
-| `~/.config/gtk-4.0/gtk.css` | gtk |
-| `~/.config/gtkrc` | gtk |
-| `~/.config/gtkrc-2.0` | gtk |
-| `~/.config/mimeapps.list` | xdg |
-| `~/.config/user-dirs.dirs` | xdg-user-dirs |
-| `~/.config/user-dirs.locale` | xdg-user-dirs |
+**gtk** — gtk-2/3/4, gtkrc, mimeapps, user-dirs
 
-### Apps
-| Path | Package |
-|------|---------|
-| `~/.config/fastfetch/` | fastfetch |
-| `~/.config/flameshot/` | flameshot |
-| `~/.config/htop/htoprc` | htop |
-| `~/.config/micro/` | micro (settings + colorschemes) |
-| `~/.config/mousepad/` | mousepad |
-| `~/.config/xed/` | xed |
-| `~/.config/Thunar/` | thunar |
-| `~/.config/xarchiver/` | xarchiver |
-| `~/.config/audacious/` | audacious |
-| `~/.config/bleachbit/` | bleachbit-git |
-| `~/.config/vlc/` | vlc-plugins-all |
-| `~/.config/pavucontrol.ini` | pavucontrol |
-| `~/.config/psd/` | profile-sync-daemon |
-| `~/.config/shelly/` | shelly |
-| `~/.config/lact/` | lact-git |
-| `~/.config/cachyos/` | cachyos-* |
-| `~/.config/Cursor/User/settings.json` | cursor-nightly-bin |
-| `~/.config/obs-studio/basic/` | obs-studio-git (scenes + profiles) |
-| `~/.config/obs-studio/global.ini` | obs-studio-git |
-| `~/.config/obs-studio/user.ini` | obs-studio-git |
-| `~/.config/heroic/config.json` | heroic-games-launcher-bin |
-| `~/.config/qBittorrent/qBittorrent.conf` | qbittorrent |
+**apps** — fastfetch, flameshot, htop, micro, thunar, xed, mousepad, vlc, audacious, bleachbit, pavucontrol, psd, shelly, lact, cachyos, cursor settings, obs scenes, heroic config, qbittorrent
 
-### Gaming
-| Path | Package |
-|------|---------|
-| `~/.config/vkbasalt/` | vkbasalt |
-| `~/.config/MangoHud/MangoHud.conf` | gamemode |
+**gaming** — vkbasalt, mangohud
 
-### System configs (`~/etc/`)
+**wallpapers** — `~/.wallpapers/` (artstation, berserk, sst, templars)
 
-System-wide configs live in `/etc/` on the machine. Copies are tracked under `~/etc/` and deployed with:
+**system mirror** — `~/etc/` copies of ly, mkinitcpio, limine, snapper, ufw, networkmanager, dunst, amdgpu modprobe, sysctl. xlibre snippets go in `~/etc/X11/xorg.conf.d/` (see readme there).
 
-```bash
-sudo ~/etc/install.sh              # deploy all
-sudo ~/etc/install.sh ly/config.ini  # deploy one file
-```
+## not tracked on purpose
 
-| Mirror path | Package | Deploys to |
-|-------------|---------|------------|
-| `~/etc/ly/config.ini` | ly | `/etc/ly/config.ini` |
-| `~/etc/X11/xorg.conf.d/` | xlibre-xserver | `/etc/X11/xorg.conf.d/` |
-| `~/etc/modprobe.d/99-amdgpu-overdrive.conf` | amd-ucode | `/etc/modprobe.d/` |
-| `~/etc/NetworkManager/NetworkManager.conf` | networkmanager | `/etc/NetworkManager/` |
-| `~/etc/mkinitcpio.conf` | mkinitcpio | `/etc/mkinitcpio.conf` |
-| `~/etc/mkinitcpio.conf.d/` | limine-mkinitcpio-hook | `/etc/mkinitcpio.conf.d/` |
-| `~/etc/limine-snapper-sync.conf` | limine-snapper-sync | `/etc/limine-snapper-sync.conf` |
-| `~/etc/limine-entry-tool.conf` | limine | `/etc/limine-entry-tool.conf` |
-| `~/etc/snapper/configs/root` | snapper | `/etc/snapper/configs/root` |
-| `~/etc/ufw/` | ufw | `/etc/ufw/` |
-| `~/etc/dunst/dunstrc` | dunst | `/etc/dunst/dunstrc` |
-| `~/etc/sysctl.d/50-cursor.conf` | (local) | `/etc/sysctl.d/` |
+ssh keys, browser profiles, bitwarden, heroic/steam caches, that kind of thing. list is in `~/.dotfiles/info/exclude`.
 
-**xlibre note:** There is no `~/.config/xlibre`. GPU/monitor/input tweaks go in `/etc/X11/xorg.conf.d/*.conf` — see `~/etc/X11/xorg.conf.d/README.md`.
-
-Add more configs over time with `config add <path>`.
+glance at `config status` before you commit anyway.
