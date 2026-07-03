@@ -1,0 +1,91 @@
+# Linux Dotfiles
+
+Bare Git repository tracking selected configuration files from `$HOME`.
+
+## How It Works
+
+- **Git directory:** `~/.dotfiles` (bare repo)
+- **Work tree:** `$HOME` (your actual config files stay in place)
+- **Command:** `config` — a shell function defined in `~/.zshrc`
+
+```zsh
+function config() {
+  git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+}
+```
+
+Only files you explicitly `config add` are tracked. Untracked home files are hidden from `config status`.
+
+## Daily Workflow
+
+```bash
+# Check what's changed
+config status
+
+# Track a new config file or directory
+config add ~/.config/some-app
+
+# Commit changes
+config commit -m "Update fastfetch config"
+
+# View history
+config log --oneline
+
+# Push to remote (after setting one up)
+config push
+```
+
+## Adding a Remote
+
+```bash
+# Create a private repo on GitHub/GitLab, then:
+config remote add origin git@github.com:YOUR_USER/linux-dotfiles.git
+config push -u origin main
+```
+
+## Restore on a New Machine
+
+```bash
+# 1. Clone the bare repo
+git clone --bare git@github.com:YOUR_USER/linux-dotfiles.git ~/.dotfiles
+
+# 2. Add the config function to ~/.zshrc (or run directly):
+alias config='git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+
+# 3. Checkout tracked files (only adds/updates tracked paths)
+config checkout
+
+# 4. Reload shell
+source ~/.zshrc
+```
+
+If a file already exists and differs, back it up first:
+
+```bash
+mv ~/.zshrc ~/.zshrc.bak
+config checkout -- .zshrc
+```
+
+## Safety
+
+Sensitive paths are listed in `~/.dotfiles/info/exclude` (SSH keys, browser profiles, credentials, caches). Always review `config status` before committing.
+
+To see all untracked files (normally hidden):
+
+```bash
+config status -u
+```
+
+## Currently Tracked
+
+| Path | Description |
+|------|-------------|
+| `~/.zshrc` | Zsh shell config (includes `config` function) |
+| `~/.p10k.zsh` | Powerlevel10k prompt theme |
+| `~/.config/fastfetch/` | Fastfetch system info display |
+| `~/.config/fish/` | Fish shell config |
+| `~/.config/gtk-3.0/settings.ini` | GTK 3 theme settings |
+| `~/.config/gtk-4.0/gtk.css` | GTK 4 custom styles |
+| `~/.config/Cursor/User/settings.json` | Cursor editor settings |
+
+Add more configs over time with `config add <path>`.

@@ -1,0 +1,88 @@
+# ~/.config/fastfetch/config
+# Volcano / Ember theme — compact, amber accents, matching Alacritty
+
+# General layout
+info_format="key_value"          # compact: "Key: Value"
+left_padding=2
+logo_padding_left=1
+logo_padding_top=0
+logo_padding_bottom=0
+separator="•"                    # small inline separator
+
+# Colors (hex, no 0x)
+accent_color="#FFB86B"           # lava amber (used for values/accents)
+primary_color="#E6E1D9"          # foreground (labels)
+background_color="#0f0f10"       # background for preview/blocks (if supported)
+key_color="#9FC3FF"              # subtle blue for keys
+bar_color="#D9534F"              # red for highlighted bars (if used)
+palette="#0f0f10 #D9534F #A3BE8C #FFB86B #7AA2F7 #D48BEB #66D9EF #C8C6C2"
+
+# Logo / ASCII
+logo="arch"                      # use your distro logo (adjust to your distro)
+ascii_colors="$accent_color"     # color the ASCII/logo with accent
+
+# Which info lines to show (order matters)
+# Keep compact: essential items first
+show_os=true
+show_distro=true
+show_host=true
+show_kernel=true
+show_uptime=true
+show_packages=true
+show_shell=true
+show_resolution=true
+show_de=true
+show_wm=true
+show_wm_theme=true
+show_theme=true
+show_icons=true
+show_font=true
+show_cursor=true
+show_terminal=true
+show_terminal_font=true
+show_cpu=true
+show_gpu=true
+show_memory=true
+show_swap=true
+show_disk=true
+show_local_ip=true
+show_locale=true
+
+# Custom labels (shorter, consistent)
+label_os="OS"
+label_host="Host"
+label_kernel="Kernel"
+label_uptime="Uptime"
+label_packages="Packages"
+label_shell="Shell"
+label_resolution="Display"
+label_de="DE"
+label_wm="WM"
+label_theme="Theme"
+label_icons="Icons"
+label_font="Font"
+label_cursor="Cursor"
+label_terminal="Terminal"
+label_cpu="CPU"
+label_gpu="GPU"
+label_memory="Memory"
+label_swap="Swap"
+label_disk="Disk"
+label_local_ip="Local IP"
+label_locale="Locale"
+
+# Value formatting
+values_bold=true                 # make values stand out
+key_padding=1
+value_padding=0
+
+# Bars (for memory / disk) — compact style
+bar_type="blocks"                # or "gradient"
+bar_length=10
+bar_background="#5B5956"
+bar_foreground="#FFB86B"
+
+# Misc
+show_colors=true                 # show the palette block
+colors_block_width=12
+use_unicode=true                 # better separators and icons
