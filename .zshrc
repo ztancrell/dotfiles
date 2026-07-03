@@ -1,4 +1,5 @@
 # Dotfiles bare repo — manage tracked configs with: config <git-command>
+DISABLE_CORRECT="config"
 function config() {
   git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
