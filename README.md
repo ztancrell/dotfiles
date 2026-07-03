@@ -85,6 +85,9 @@ Configs are matched to installed packages (`pacman -Qqe`). Browser profiles, cac
 |------|---------|
 | `~/.zshrc` | zsh |
 | `~/.p10k.zsh` | cachyos-zsh-config |
+| `~/.dmrc` | ly (default session) |
+| `~/.fehbg` | feh (wallpaper script) |
+| `~/redshift-cli.sh` | redshift (tray launcher) |
 | `~/.config/openbox/` | openbox |
 | `~/.config/tint2/` | tint2 |
 | `~/.config/lxpanel/` | lxpanel |
@@ -135,5 +138,31 @@ Configs are matched to installed packages (`pacman -Qqe`). Browser profiles, cac
 |------|---------|
 | `~/.config/vkbasalt/` | vkbasalt |
 | `~/.config/MangoHud/MangoHud.conf` | gamemode |
+
+### System configs (`~/etc/`)
+
+System-wide configs live in `/etc/` on the machine. Copies are tracked under `~/etc/` and deployed with:
+
+```bash
+sudo ~/etc/install.sh              # deploy all
+sudo ~/etc/install.sh ly/config.ini  # deploy one file
+```
+
+| Mirror path | Package | Deploys to |
+|-------------|---------|------------|
+| `~/etc/ly/config.ini` | ly | `/etc/ly/config.ini` |
+| `~/etc/X11/xorg.conf.d/` | xlibre-xserver | `/etc/X11/xorg.conf.d/` |
+| `~/etc/modprobe.d/99-amdgpu-overdrive.conf` | amd-ucode | `/etc/modprobe.d/` |
+| `~/etc/NetworkManager/NetworkManager.conf` | networkmanager | `/etc/NetworkManager/` |
+| `~/etc/mkinitcpio.conf` | mkinitcpio | `/etc/mkinitcpio.conf` |
+| `~/etc/mkinitcpio.conf.d/` | limine-mkinitcpio-hook | `/etc/mkinitcpio.conf.d/` |
+| `~/etc/limine-snapper-sync.conf` | limine-snapper-sync | `/etc/limine-snapper-sync.conf` |
+| `~/etc/limine-entry-tool.conf` | limine | `/etc/limine-entry-tool.conf` |
+| `~/etc/snapper/configs/root` | snapper | `/etc/snapper/configs/root` |
+| `~/etc/ufw/` | ufw | `/etc/ufw/` |
+| `~/etc/dunst/dunstrc` | dunst | `/etc/dunst/dunstrc` |
+| `~/etc/sysctl.d/50-cursor.conf` | (local) | `/etc/sysctl.d/` |
+
+**xlibre note:** There is no `~/.config/xlibre`. GPU/monitor/input tweaks go in `/etc/X11/xorg.conf.d/*.conf` — see `~/etc/X11/xorg.conf.d/README.md`.
 
 Add more configs over time with `config add <path>`.
