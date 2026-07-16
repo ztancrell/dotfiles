@@ -1,0 +1,6 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=picom
+Hidden=true
+Comment=Disabled in LXQt+Labwc Wayland session (Labwc is the compositor)

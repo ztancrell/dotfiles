@@ -1,7 +1,7 @@
 format 11
 transport /usr/lib/audacious/Transport/gio.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name GIO Plugin
 domain audacious-plugins
@@ -14,8 +14,8 @@ scheme sftp
 scheme smb
 scheme mtp
 transport /usr/lib/audacious/Transport/mms.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name MMS Plugin
 domain audacious-plugins
@@ -25,8 +25,8 @@ config 0
 enabled 1
 scheme mms
 transport /usr/lib/audacious/Transport/neon.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Neon HTTP/HTTPS Plugin
 domain audacious-plugins
@@ -37,8 +37,8 @@ enabled 1
 scheme http
 scheme https
 playlist /usr/lib/audacious/Container/asx.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name ASXv1/ASXv2 Playlists
 domain audacious-plugins
@@ -49,8 +49,8 @@ enabled 1
 ext asx
 saves 0
 playlist /usr/lib/audacious/Container/asx3.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name ASXv3 Playlists
 domain audacious-plugins
@@ -61,8 +61,8 @@ enabled 1
 ext asx
 saves 1
 playlist /usr/lib/audacious/Container/audpl.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Audacious Playlists (audpl)
 domain audacious-plugins
@@ -73,8 +73,8 @@ enabled 1
 ext audpl
 saves 1
 playlist /usr/lib/audacious/Container/cue.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Cue Sheet Plugin
 domain audacious-plugins
@@ -85,8 +85,8 @@ enabled 1
 ext cue
 saves 0
 playlist /usr/lib/audacious/Container/m3u.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name M3U Playlists
 domain audacious-plugins
@@ -98,8 +98,8 @@ ext m3u
 ext m3u8
 saves 1
 playlist /usr/lib/audacious/Container/pls.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name PLS Playlists
 domain audacious-plugins
@@ -110,8 +110,8 @@ enabled 1
 ext pls
 saves 1
 playlist /usr/lib/audacious/Container/xspf.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name XML Shareable Playlists (XSPF)
 domain audacious-plugins
@@ -122,8 +122,8 @@ enabled 1
 ext xspf
 saves 1
 input /usr/lib/audacious/Input/xsf.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name 2SF Decoder
 domain audacious-plugins
@@ -136,8 +136,8 @@ scheme mini2sf
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/aac-raw.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name AAC (Raw) Decoder
 domain audacious-plugins
@@ -150,8 +150,8 @@ ext audio/aac
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/amidi-plug.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name AMIDI-Plug (MIDI Player)
 domain audacious-plugins
@@ -167,8 +167,8 @@ ext audio/midi
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/cdaudio-ng.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Audio CD Plugin
 domain audacious-plugins
@@ -180,8 +180,8 @@ mime cdda
 subtunes 2
 writes 0
 input /usr/lib/audacious/Input/console.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Game Console Music Decoder
 domain audacious-plugins
@@ -203,8 +203,8 @@ scheme vgz
 subtunes 2
 writes 0
 input /usr/lib/audacious/Input/madplug.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name MPG123 Plugin
 domain audacious-plugins
@@ -223,8 +223,8 @@ ext audio/x-mpeg
 subtunes 0
 writes 1
 input /usr/lib/audacious/Input/openmpt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name OpenMPT (Module Player)
 domain audacious-plugins
@@ -276,8 +276,8 @@ scheme xpk
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/psf2.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name OpenPSF PSF1/PSF2 Decoder
 domain audacious-plugins
@@ -294,8 +294,8 @@ scheme spx
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/opus.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Opus Decoder
 domain audacious-plugins
@@ -311,8 +311,8 @@ ext audio/x-opus+ogg
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/sid.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name SID Player
 domain audacious-plugins
@@ -326,8 +326,8 @@ ext audio/prs.sid
 subtunes 2
 writes 0
 input /usr/lib/audacious/Input/metronom.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Tact Generator
 domain audacious-plugins
@@ -339,8 +339,8 @@ mime tact
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/tonegen.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Tone Generator
 domain audacious-plugins
@@ -352,8 +352,8 @@ mime tone
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/vtx.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name VTX Decoder
 domain audacious-plugins
@@ -365,8 +365,8 @@ scheme vtx
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/wavpack.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name WavPack Decoder
 domain audacious-plugins
@@ -379,8 +379,8 @@ ext audio/x-wavpack
 subtunes 0
 writes 1
 input /usr/lib/audacious/Input/flacng.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name FLAC Decoder
 domain audacious-plugins
@@ -397,8 +397,8 @@ ext application/ogg
 subtunes 0
 writes 1
 input /usr/lib/audacious/Input/modplug.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name ModPlug (Module Player)
 domain audacious-plugins
@@ -429,8 +429,8 @@ scheme ft2
 subtunes 2
 writes 0
 input /usr/lib/audacious/Input/vorbis.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Ogg Vorbis Decoder
 domain audacious-plugins
@@ -448,8 +448,8 @@ ext audio/x-vorbis+ogg
 subtunes 0
 writes 1
 input /usr/lib/audacious/Input/sndfile.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Sndfile Plugin
 domain audacious-plugins
@@ -457,17 +457,21 @@ priority 9
 about 1
 config 0
 enabled 1
+scheme aif
+scheme aifc
 scheme aiff
 scheme au
 scheme raw
 scheme wav
+ext audio/aiff
+ext audio/x-aiff
 ext audio/wav
 ext audio/x-wav
 subtunes 0
 writes 0
 input /usr/lib/audacious/Input/ffaudio.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name FFmpeg Plugin
 domain audacious-plugins
@@ -505,8 +509,8 @@ ext audio/ogg
 subtunes 0
 writes 1
 effect /usr/lib/audacious/Effect/bs2b.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Bauer Stereophonic-to-Binaural (BS2B)
 domain audacious-plugins
@@ -515,8 +519,8 @@ about 0
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/bitcrusher.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Bitcrusher
 domain audacious-plugins
@@ -525,8 +529,8 @@ about 0
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/crystalizer.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Crystalizer
 domain audacious-plugins
@@ -535,8 +539,8 @@ about 0
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/compressor.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Dynamic Range Compressor
 domain audacious-plugins
@@ -545,8 +549,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/echo.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Echo
 domain audacious-plugins
@@ -555,8 +559,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/stereo.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Extra Stereo
 domain audacious-plugins
@@ -565,8 +569,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/silence-removal.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Silence Removal
 domain audacious-plugins
@@ -575,8 +579,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/speed-pitch.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Speed and Pitch
 domain audacious-plugins
@@ -585,8 +589,8 @@ about 0
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/voice_removal.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Voice Removal
 domain audacious-plugins
@@ -595,8 +599,8 @@ about 0
 config 0
 enabled 0
 effect /usr/lib/audacious/Effect/mixer.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Channel Mixer
 domain audacious-plugins
@@ -605,8 +609,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/resample.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Sample Rate Converter
 domain audacious-plugins
@@ -615,8 +619,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/sox-resampler.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name SoX Resampler
 domain audacious-plugins
@@ -625,8 +629,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/crossfade.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Crossfade
 domain audacious-plugins
@@ -635,8 +639,8 @@ about 1
 config 1
 enabled 0
 effect /usr/lib/audacious/Effect/background_music.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Background Music
 domain audacious-plugins
@@ -645,8 +649,8 @@ about 1
 config 1
 enabled 0
 output /usr/lib/audacious/Output/pipewire.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name PipeWire Output
 domain audacious-plugins
@@ -655,8 +659,8 @@ about 1
 config 0
 enabled 1
 output /usr/lib/audacious/Output/pulse_audio.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name PulseAudio Output
 domain audacious-plugins
@@ -665,8 +669,8 @@ about 1
 config 1
 enabled 0
 output /usr/lib/audacious/Output/alsa.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name ALSA Output
 domain audacious-plugins
@@ -674,9 +678,19 @@ priority 5
 about 1
 config 1
 enabled 0
+output /usr/lib/audacious/Output/sndio-ng.so
+stamp 1780908125
+version 49
+flags 0
+name Sndio Output
+domain audacious-plugins
+priority 5
+about 0
+config 1
+enabled 0
 output /usr/lib/audacious/Output/oss4.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name OSS3 Output
 domain audacious-plugins
@@ -685,8 +699,8 @@ about 1
 config 1
 enabled 0
 output /usr/lib/audacious/Output/sdlout.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name SDL Output
 domain audacious-plugins
@@ -695,8 +709,8 @@ about 1
 config 0
 enabled 0
 output /usr/lib/audacious/Output/filewriter.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name FileWriter Plugin
 domain audacious-plugins
@@ -705,8 +719,8 @@ about 1
 config 1
 enabled 0
 output /usr/lib/audacious/Output/jack-ng.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name JACK Output
 domain audacious-plugins
@@ -715,8 +729,8 @@ about 0
 config 1
 enabled 0
 vis /usr/lib/audacious/Visualization/blur_scope-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Blur Scope
 domain audacious-plugins
@@ -725,8 +739,8 @@ about 0
 config 1
 enabled 0
 vis /usr/lib/audacious/Visualization/gl-spectrum-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name OpenGL Spectrum Analyzer
 domain audacious-plugins
@@ -735,8 +749,8 @@ about 1
 config 0
 enabled 0
 vis /usr/lib/audacious/Visualization/qt-spectrum.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Spectrum Analyzer
 domain audacious-plugins
@@ -745,8 +759,8 @@ about 0
 config 0
 enabled 0
 vis /usr/lib/audacious/Visualization/vumeter-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name VU Meter
 domain audacious-plugins
@@ -755,8 +769,8 @@ about 1
 config 1
 enabled 0
 general /usr/lib/audacious/General/albumart-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Album Art
 domain audacious-plugins
@@ -765,8 +779,8 @@ about 0
 config 0
 enabled 0
 general /usr/lib/audacious/General/cd-menu-items.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Audio CD Menu Items
 domain audacious-plugins
@@ -775,8 +789,8 @@ about 0
 config 0
 enabled 1
 general /usr/lib/audacious/General/delete-files.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Delete Files
 domain audacious-plugins
@@ -785,8 +799,8 @@ about 0
 config 1
 enabled 0
 general /usr/lib/audacious/General/notify.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Desktop Notifications
 domain audacious-plugins
@@ -794,9 +808,19 @@ priority 0
 about 1
 config 1
 enabled 0
+general /usr/lib/audacious/General/filebrowser-qt.so
+stamp 1780908125
+version 49
+flags 2
+name File Browser
+domain audacious-plugins
+priority 0
+about 1
+config 0
+enabled 0
 general /usr/lib/audacious/General/qthotkey.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Global Hotkeys
 domain audacious-plugins
@@ -805,8 +829,8 @@ about 1
 config 1
 enabled 0
 general /usr/lib/audacious/General/lirc.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name LIRC Plugin
 domain audacious-plugins
@@ -815,8 +839,8 @@ about 1
 config 1
 enabled 0
 general /usr/lib/audacious/General/lyrics-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Lyrics
 domain audacious-plugins
@@ -825,8 +849,8 @@ about 0
 config 1
 enabled 0
 general /usr/lib/audacious/General/mpris2.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name MPRIS 2 Server
 domain audacious-plugins
@@ -835,8 +859,8 @@ about 1
 config 0
 enabled 1
 general /usr/lib/audacious/General/playback-history-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Playback History
 domain audacious-plugins
@@ -845,8 +869,8 @@ about 1
 config 1
 enabled 0
 general /usr/lib/audacious/General/playlist-manager-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Playlist Manager
 domain audacious-plugins
@@ -855,8 +879,8 @@ about 0
 config 0
 enabled 0
 general /usr/lib/audacious/General/scrobbler.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Scrobbler 2.0
 domain audacious-plugins
@@ -865,8 +889,8 @@ about 1
 config 1
 enabled 0
 general /usr/lib/audacious/General/search-tool-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Search Tool
 domain audacious-plugins
@@ -875,8 +899,8 @@ about 0
 config 1
 enabled 0
 general /usr/lib/audacious/General/song_change.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 0
 name Song Change
 domain audacious-plugins
@@ -885,8 +909,8 @@ about 0
 config 1
 enabled 0
 general /usr/lib/audacious/General/song-info-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Song Info
 domain audacious-plugins
@@ -895,8 +919,8 @@ about 0
 config 0
 enabled 0
 general /usr/lib/audacious/General/statusicon-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Status Icon
 domain audacious-plugins
@@ -905,8 +929,8 @@ about 1
 config 1
 enabled 0
 iface /usr/lib/audacious/General/qtui.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Qt Interface
 domain audacious-plugins
@@ -915,8 +939,8 @@ about 0
 config 1
 enabled 1
 iface /usr/lib/audacious/General/skins-qt.so
-stamp 1759600757
-version 48
+stamp 1780908125
+version 49
 flags 2
 name Winamp Classic Interface
 domain audacious-plugins

@@ -1,0 +1,11 @@
+# Use with Labwc: include this in your Alacritty config so the terminal
+# uses dark window decorations (or labwc's server-side titlebar when available).
+#
+# Add to ~/.config/alacritty/alacritty.toml:
+#   [general]
+#   import = [ "~/.config/labwc/templates/alacritty-labwc-decorations.toml" ]
+# Or copy the [window] section below into your config.
+
+[window]
+decorations = "Full"
+decorations_theme_variant = "Dark"

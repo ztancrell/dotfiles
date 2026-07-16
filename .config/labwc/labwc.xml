@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labwc>
+  <!-- Output configuration for dual monitors -->
+<!-- Output configuration -->
+<output>
+  <name>*</name>
+</output>
+
+  <core>
+    <decoration>server</decoration>
+    <maximizedDecoration>none</maximizedDecoration>
+    <gap>0</gap>
+    <adaptiveSync>no</adaptiveSync>
+    <allowTearing>no</allowTearing>
+    <autoEnableOutputs>yes</autoEnableOutputs>
+    <reuseOutputMode>no</reuseOutputMode>
+    <xwaylandPersistence>no</xwaylandPersistence>
+    <primarySelection>yes</primarySelection>
+  </core>
+
+  <placement>
+    <policy>cascade</policy>
+  </placement>
+
+  <windowRules>
+    <windowRule identifier="*">
+      <action name="SetDecorations" decorations="all"/>
+    </windowRule>
+    <windowRule title="Attention">
+      <action name="ToggleAlwaysOnTop" />
+    </windowRule>
+    <!-- Hide xwaylandvideobridge from taskbar (used for screen sharing) -->
+    <windowRule identifier="xwaylandvideobridge">
+      <skipTaskbar>yes</skipTaskbar>
+      <skipWindowSwitcher>yes</skipWindowSwitcher>
+    </windowRule>
+  </windowRules>
+
+  <theme>
+    <name>NIGHT-RED</name>
+    <cornerRadius>0</cornerRadius>
+    <keepBorder>no</keepBorder>
+    <dropShadows>no</dropShadows>
+    <maximizedDecoration>none</maximizedDecoration>
+    <titlebar>
+      <layout>:iconify,max,close</layout>
+    </titlebar>
+    <font place="ActiveWindow"><name>Sans</name><size>6</size></font>
+    <font place="InactiveWindow"><name>Sans</name><size>6</size></font>
+  </theme>
+
+  <!-- Right-click menu -->
+<menu>
+  <file>menu.xml</file>
+</menu>
+
+  <!-- Consolidated keyboard shortcuts -->
+  <keyboard>
+    <!-- Terminal & Launcher -->
+    <keybind key="W-Return">
+      <action name="Execute"><command>alacritty</command></action>
+    </keybind>
+    
+    <!-- Window Management -->
+    <keybind key="W-q">
+      <action name="Close"/>
+    </keybind>
+    <keybind key="W-f">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="F11">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="W-space">
+      <action name="ShowMenu"/>
+    </keybind>
+    
+    <!-- Configuration -->
+    <keybind key="W-Shift-c">
+      <action name="Custom"><command>labwc --reconfigure</command></action>
+    </keybind>
+    <keybind key="W-c">
+      <action name="Reconfigure"/>
+    </keybind>
+    <keybind key="W-Shift-e">
+      <action name="Execute"><command>~/.config/labwc/scripts/logout.sh</command></action>
+    </keybind>
+    
+    <!-- Lock Screen -->
+    <keybind key="W-Shift-l">
+      <action name="Execute"><command>swaylock -f -c 000000</command></action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute"><command>loginctl lock-session</command></action>
+    </keybind>
+    
+    <!-- Screenshots (Print key + RK61-friendly alternatives) -->
+    <keybind key="Print">
+      <action name="Execute"><command>sh -c 'grimshot save area ~/Pictures/Screenshots/$(date +%F-%T).png && paplay ~/.config/labwc/sound/screen-capture.oga'</command></action>
+    </keybind>
+    <keybind key="Shift-Print">
+      <action name="Execute"><command>sh -c 'grimshot copy area && paplay ~/.config/labwc/sound/screen-capture.oga'</command></action>
+    </keybind>
+    <keybind key="W-s">
+      <action name="Execute"><command>sh -c 'grimshot save area ~/Pictures/Screenshots/$(date +%F-%T).png && paplay ~/.config/labwc/sound/screen-capture.oga'</command></action>
+    </keybind>
+    <keybind key="W-S-s">
+      <action name="Execute"><command>sh -c 'grimshot copy area && paplay ~/.config/labwc/sound/screen-capture.oga'</command></action>
+    </keybind>
+    
+    <!-- Window Navigation -->
+    <keybind key="A-Tab">
+      <action name="NextWindow" />
+    </keybind>
+    <keybind key="A-S-Tab">
+      <action name="PreviousWindow" />
+    </keybind>
+    
+    <!-- Workspace Switching -->
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2" />
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3" />
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4" />
+    </keybind>
+    
+    <!-- Move Windows to Workspaces -->
+    <keybind key="W-S-1">
+      <action name="SendToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-S-2">
+      <action name="SendToDesktop" to="2" />
+    </keybind>
+    <keybind key="W-S-3">
+      <action name="SendToDesktop" to="3" />
+    </keybind>
+    <keybind key="W-S-4">
+      <action name="SendToDesktop" to="4" />
+    </keybind>
+    
+    <!-- Window Snapping (arrows + RK61-friendly HJKL vim-style) -->
+    <keybind key="W-Left">
+      <action name="SnapToEdge" direction="left" />
+    </keybind>
+    <keybind key="W-Right">
+      <action name="SnapToEdge" direction="right" />
+    </keybind>
+    <keybind key="W-Up">
+      <action name="SnapToEdge" direction="up" />
+    </keybind>
+    <keybind key="W-Down">
+      <action name="SnapToEdge" direction="down" />
+    </keybind>
+    <keybind key="W-h">
+      <action name="SnapToEdge" direction="left" />
+    </keybind>
+    <keybind key="W-j">
+      <action name="SnapToEdge" direction="down" />
+    </keybind>
+    <keybind key="W-k">
+      <action name="SnapToEdge" direction="up" />
+    </keybind>
+    <!-- W-l is lock screen, use W-; for right snap -->
+    <keybind key="W-semicolon">
+      <action name="SnapToEdge" direction="right" />
+    </keybind>
+    
+    <!-- RK61 Fullscreen alternative (F11 needs Fn key) -->
+    <keybind key="W-m">
+      <action name="ToggleMaximize"/>
+    </keybind>
+    
+    <!-- Wallpaper: cycle to next random wallpaper -->
+    <keybind key="W-w">
+      <action name="Execute"><command>~/.config/labwc/scripts/wallpaper.sh --next</command></action>
+    </keybind>
+    
+    <!-- Media Keys (RK61 Fn layer) -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute"><command>sh -c 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ && paplay ~/.config/labwc/sound/audio-volume-change.oga'</command></action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute"><command>sh -c 'wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && paplay ~/.config/labwc/sound/audio-volume-change.oga'</command></action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute"><command>sh -c 'wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && paplay ~/.config/labwc/sound/audio-volume-change.oga'</command></action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute"><command>brightnessctl set +5%</command></action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute"><command>brightnessctl set 5%-</command></action>
+    </keybind>
+  </keyboard>
+
+  <!-- Mouse bindings -->
+  <mouse>
+    <context name="frame">
+      <button button="Left" action="Move"/>
+      <button button="Right" action="Resize"/>
+      <button button="Middle" action="ShowMenu"/>
+    </context>
+    <context name="root">
+      <button button="Right" action="ShowMenu"/>
+    </context>
+    <context name="Root">
+      <mousebind button="Right" action="Press">
+        <action name="ShowMenu" menu="root-menu" />
+      </mousebind>
+      <mousebind button="Left" action="Press">
+        <action name="None" />
+      </mousebind>
+    </context>
+  </mouse>
+
+  <!-- Workspace configuration -->
+  <desktops number="4">
+    <popupTime>1000</popupTime>
+    <names>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
+    </names>
+  </desktops>
+
+  <!-- Input device configuration -->
+  <libinput>
+    <!-- TOUCHPAD: laptop trackpads -->
+    <device category="touchpad">
+      <pointerSpeed>0.3</pointerSpeed>
+      <accelProfile>adaptive</accelProfile>
+      <naturalScroll>no</naturalScroll>
+      <scrollFactor>0.3</scrollFactor>
+      <scrollMethod>twoFinger</scrollMethod>
+      <tap>yes</tap>
+      <tapButtonMap>lrm</tapButtonMap>
+      <tapAndDrag>yes</tapAndDrag>
+      <dragLock>no</dragLock>
+      <disableWhileTyping>yes</disableWhileTyping>
+      <clickMethod>buttonAreas</clickMethod>
+    </device>
+    <!-- NON-TOUCH: physical/external mice -->
+    <device category="non-touch">
+      <pointerSpeed>1.0</pointerSpeed>
+      <accelProfile>adaptive</accelProfile>
+      <naturalScroll>no</naturalScroll>
+      <scrollFactor>1.0</scrollFactor>
+      <leftHanded>no</leftHanded>
+    </device>
+  </libinput>
+
+  <!-- Window behavior -->
+  <window>
+    <focus_model>sloppy</focus_model>
+    <border>normal</border>
+    <border_width>1</border_width>
+    <titlebar>enabled</titlebar>
+    <resize>
+      <minimumArea>5</minimumArea>
+    </resize>
+  </window>
+</labwc>

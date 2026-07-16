@@ -1,5 +1,5 @@
 # polkit agent (if present)
-# /usr/libexec/polkit-gnome-authentication-agent-1 &
+/usr/libexec/polkit-gnome-authentication-agent-1 &
 
 # login sound
 paplay ~/.config/openbox/sound/desktop-login.oga >/dev/null 2>&1 &

@@ -1,0 +1,12 @@
+[Unit]
+Description=Restart xdg-desktop-portal for Labwc
+After=graphical-session.target xdg-desktop-portal.service
+Wants=xdg-desktop-portal.service
+
+[Service]
+Type=oneshot
+ExecStartPre=/bin/sleep 3
+ExecStart=/usr/bin/systemctl --user restart xdg-desktop-portal
+
+[Install]
+WantedBy=graphical-session.target
