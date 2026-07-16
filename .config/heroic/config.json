@@ -31,7 +31,7 @@
     "winePrefix": "/home/zpt/Games/Heroic/Prefixes/shared",
     "wineVersion": {
       "bin": "/usr/sbin/wine",
-      "name": "wine-11.7",
+      "name": "wine-11.12",
       "type": "wine",
       "wineserver": "/usr/sbin/wineserver"
     },
@@ -44,6 +44,7 @@
     "eacRuntime": true,
     "battlEyeRuntime": true,
     "framelessWindow": false,
+    "hideWindowOnProtocolLaunch": false,
     "beforeLaunchScriptPath": "",
     "afterLaunchScriptPath": "",
     "disableUMU": false,

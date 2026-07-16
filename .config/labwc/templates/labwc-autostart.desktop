@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Labwc Autostart
+Comment=Run Labwc autostart commands for LXQt session
+Exec=sh -c 'sleep 1; killall pcmanfm-qt 2>/dev/null; ~/.config/labwc/autostart'
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+X-LXQt-Need-Tray=false

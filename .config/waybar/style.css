@@ -1,0 +1,78 @@
+/* NIGHT-RED theme for Waybar - minimal Windows-like taskbar */
+
+* {
+    font-family: "Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 11px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: #0d0d0d;
+    color: #b0b0b0;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+#custom-menu {
+    padding: 0 12px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+#custom-menu:hover {
+    background-color: #b22222;
+    color: #ffffff;
+}
+
+#taskbar {
+    padding: 0 2px;
+}
+
+/* Taskbar buttons: min-width for even/symmetric active highlight */
+#taskbar button {
+    min-width: 36px;
+    padding: 6px;
+    min-height: 20px;
+    margin: 0 1px;
+    background-color: transparent;
+    color: #b0b0b0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+#taskbar button:hover {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+#taskbar button.active {
+    background-color: #b22222;
+    color: #ffffff;
+}
+
+#taskbar button.minimized {
+    color: #808080;
+}
+
+#pulseaudio,
+#backlight,
+#clock {
+    padding: 0 10px;
+}
+
+#pulseaudio:hover,
+#backlight:hover {
+    background-color: #1a1a1a;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    color: #808080;
+}

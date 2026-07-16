@@ -1,0 +1,10 @@
+[Unit]
+Description=Verify Labwc Vermello theme on startup
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/labwc/scripts/verify-theme.sh
+
+[Install]
+WantedBy=graphical-session.target

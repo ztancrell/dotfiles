@@ -1,0 +1,10 @@
+[Unit]
+Description=Sync GTK theme settings for Labwc
+After=graphical-session.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/labwc/scripts/gtk.sh
+
+[Install]
+WantedBy=graphical-session.target

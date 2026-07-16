@@ -1,0 +1,19 @@
+{
+  "apply_to": "all",
+  "audio_volume": 70,
+  "close_to_background": true,
+  "last_wallpaper_id": "2821056974",
+  "launch_at_login": true,
+  "mouse_interaction": true,
+  "mute_audio": false,
+  "prefer_steamcmd_download": true,
+  "restore_last_on_launch": true,
+  "start_minimized": true,
+  "steam_avatar_path": "",
+  "steam_id64": "",
+  "steam_library_paths": [],
+  "steam_linked": false,
+  "steam_persona_name": "",
+  "steam_username": "",
+  "target_fps": 30
+}

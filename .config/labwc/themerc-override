@@ -1,0 +1,34 @@
+!! NIGHT-RED override: right-click menu + titlebar (Openbox style)
+!! Labwc applies these on top of the theme so menu and decorations stay NIGHT-RED.
+
+!! Right-click menu (dark background, red highlight)
+menu.items.bg: flat
+menu.items.bg.color: #0d0d0d
+menu.items.text.color: #a1a1a1
+menu.items.disabled.text.color: #505050
+menu.separator.color: #0d0d0d
+menu.border.width: 1
+menu.border.color: #2a2a2a
+menu.title.bg: flat
+menu.title.bg.color: #0d0d0d
+menu.title.text.color: #e5e5e5
+menu.items.active.bg: flat
+menu.items.active.bg.color: #b22222
+menu.items.active.text.color: #ffffff
+
+!! Titlebar and window (red active, dark inactive, white buttons)
+window.active.title.bg: flat
+window.active.title.bg.color: #b22222
+window.inactive.title.bg: flat
+window.inactive.title.bg.color: #1a1a1a
+window.active.label.text.color: #ffffff
+window.inactive.label.text.color: #808080
+window.active.button.*.image.color: #ffffff
+window.active.button.*.hover.bg.color: #8b0000
+window.active.button.*.pressed.bg.color: #6b0000
+window.inactive.button.*.image.color: #808080
+window.inactive.button.*.hover.bg.color: #2a2a2a
+window.active.border.color: #b22222
+window.inactive.border.color: #2a2a2a
+window.active.client.color: #0d0d0d
+window.inactive.client.color: #0d0d0d
