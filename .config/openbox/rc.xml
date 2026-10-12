@@ -305,7 +305,7 @@
     </keybind>
     <keybind key="W-f">
       <action name="Execute">
-        <command>pcmanfm</command>
+        <command>thunar</command>
         <startupnotify>
           <enabled>yes</enabled>
           <name>File Manager</name>
@@ -323,10 +323,10 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>sakura</command>
+        <command>alacritty</command>
         <startupnotify>
           <enabled>yes</enabled>
-          <name>lxterminal</name>
+          <name>Terminal</name>
         </startupnotify>
       </action>
     </keybind>
@@ -344,10 +344,10 @@
     </keybind>
     <keybind key="W-e">
       <action name="Execute">
-        <command>mousepad</command>
+        <command>xed</command>
         <startupnotify>
           <enabled>yes</enabled>
-          <name>geany</name>
+          <name>Text Editor</name>
         </startupnotify>
       </action>
     </keybind>
