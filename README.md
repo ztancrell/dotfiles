@@ -63,7 +63,7 @@ sudo ~/etc/install.sh ly/config.ini   # one file
 
 **gtk** — gtk-2/3/4, gtkrc, mimeapps, user-dirs
 
-**apps** — fastfetch, flameshot, htop, micro, thunar, xed, mousepad, vlc, audacious, bleachbit, pavucontrol, psd, shelly, lact, cachyos, cursor settings, obs scenes, heroic config, qbittorrent
+**apps** — fastfetch, flameshot, htop, micro, thunar, xed, mousepad, vlc, audacious, pavucontrol, psd, shelly, lact, cachyos, cursor settings
 
 **gaming** — vkbasalt, mangohud
 
@@ -73,6 +73,12 @@ sudo ~/etc/install.sh ly/config.ini   # one file
 
 ## not tracked on purpose
 
-ssh keys, browser profiles, bitwarden, heroic/steam caches, that kind of thing. list is in `~/.dotfiles/info/exclude`.
+ssh keys, browser profiles, bitwarden, heroic/steam caches, that kind of thing. rules are tracked in `~/.gitignore` (with local exclusions in `~/.dotfiles/info/exclude`).
 
 glance at `config status` before you commit anyway.
+
+## privacy
+
+App files that mix settings with playback/download history, saved folders, account credentials, capture sources, or installation identifiers are local-only. This includes OBS, qBittorrent, Astro, BleachBit, Heroic config, the GTK file chooser, and VLC interface state. They remain on disk but are not tracked.
+
+Only add explicitly reviewed config paths; never bulk-add your home directory. Ignore rules do not protect files already tracked. Older Git commits may still contain previously tracked app state; these exclusions do not rewrite history.

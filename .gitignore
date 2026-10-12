@@ -1,0 +1,124 @@
+# Sensitive credentials and keys
+.ssh/
+.gnupg/
+.password-store/
+.pki/
+*.pem
+*.key
+*.p12
+id_rsa
+id_ed25519
+id_ecdsa
+
+# Cloud and API credentials
+.aws/
+.azure/
+.config/gcloud/
+.netrc
+.credentials
+
+# Browser profiles and backups (may contain saved passwords)
+.config/chromium/
+.config/chromium-back*/
+.config/google-chrome/
+.config/BraveSoftware/
+.config/firefox/
+.config/mozilla/
+.config/Bitwarden/
+.config/vivaldi/
+.config/vivaldi-back*/
+
+# Unused or stale app configs
+.config/fish/
+
+# Bulky app data (track specific config files instead)
+.config/heroic/Partitions/
+.config/heroic/Cache/
+.config/heroic/tools/
+.config/heroic/images-cache/
+.config/heroic/store_cache/
+.config/heroic/legendaryConfig/
+.config/heroic/Cookies*
+.config/heroic/DIPS
+.config/heroic/Network Persistent State
+.config/heroic/Preferences
+.config/heroic/*Cache/
+.config/heroic/Local Storage/
+.config/heroic/Session Storage/
+.config/heroic/Shared Dictionary/
+.config/heroic/SharedStorage
+.config/heroic/blob_storage/
+.config/heroic/Crashpad/
+.config/vkBasalt/
+.config/obs-studio/logs/
+.config/obs-studio/plugin_config/
+.config/obs-studio/profiler_data/
+.config/obs-studio/updates/
+.config/synergy/
+.config/Mullvad VPN/
+.config/micro/syntax/
+.config/tint2/*.backup.*
+.config/audacious/playlist-state
+.config/audacious/playlists/
+.config/cachyos/cachyos-hello/*.log
+.config/obs-studio/basic/scenes/*.bak
+
+# Application caches, logs, and local state
+.cache/
+.local/
+.config/Cursor/logs/
+.config/Cursor/Cache/
+.config/Cursor/CachedData/
+.config/Cursor/Crashpad/
+.config/Cursor/GPUCache/
+.config/Cursor/Backups/
+.config/Cursor/Local Storage/
+.config/Cursor/Session Storage/
+.config/Cursor/User/globalStorage/
+.config/Cursor/User/History/
+.config/Cursor/User/workspaceStorage/
+
+# Unused desktop environments (no longer used)
+.config/labwc/
+.config/lxqt/
+.config/waybar/
+.config/systemd/user/labwc-*
+
+# Machine-specific or bulky directories
+.dotfiles/
+Downloads/
+Documents/
+Pictures/
+Videos/
+Music/
+Projects/
+Developer/
+repos/
+.cursor/
+
+# OS and package manager noise
+.Trash/
+.thumbnails/
+.bash_history
+.zsh_history
+*.swp
+*.swo
+*~
+
+# Local app state: identifiers, credentials, histories, and capture sources
+/.config/astro/
+/.config/bleachbit/
+/.config/gtk-2.0/gtkfilechooser.ini
+/.config/heroic/config.json
+/.config/obs-studio/
+/.config/qBittorrent/
+/.config/vlc/vlc-qt-interface.conf
+
+# Additional private development and account data
+/.codex/
+/.claude/
+/.config/gh/
+/.npmrc
+/.git-credentials
+.env
+.env.*
