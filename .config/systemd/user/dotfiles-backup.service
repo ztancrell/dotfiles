@@ -1,0 +1,11 @@
+[Unit]
+Description=Save and push privacy-checked dotfiles
+OnFailure=dotfiles-backup-notify.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h
+ExecStart=/usr/bin/python3 %h/dotfiles-tools/backup.py
+Environment=GIT_TERMINAL_PROMPT=0
+UMask=0077
+TimeoutStartSec=15min

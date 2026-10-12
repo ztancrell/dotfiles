@@ -122,3 +122,17 @@ repos/
 /.git-credentials
 .env
 .env.*
+
+# Unused Bash startup and retired desktop app configs (local copies retained)
+/.bash_profile
+/.bash_logout
+/.bashrc
+/.config/conky/
+/.config/nitrogen/
+/.config/pcmanfm/
+/.config/sakura/
+/.config/Mousepad/
+
+# Python build artifacts
+__pycache__/
+*.pyc

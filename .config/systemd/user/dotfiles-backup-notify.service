@@ -1,0 +1,6 @@
+[Unit]
+Description=Report dotfiles backup failure
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/notify-send --urgency=critical "Dotfiles backup needs attention" "Run: journalctl --user -u dotfiles-backup.service -n 40"
