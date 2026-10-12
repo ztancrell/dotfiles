@@ -18,7 +18,7 @@ bar_color="#D9534F"              # red for highlighted bars (if used)
 palette="#0f0f10 #D9534F #A3BE8C #FFB86B #7AA2F7 #D48BEB #66D9EF #C8C6C2"
 
 # Logo / ASCII
-logo="arch"                      # use your distro logo (adjust to your distro)
+logo="tux"                      # use your distro logo (adjust to your distro)
 ascii_colors="$accent_color"     # color the ASCII/logo with accent
 
 # Which info lines to show (order matters)
