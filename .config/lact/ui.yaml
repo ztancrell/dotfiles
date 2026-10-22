@@ -1,17 +1,9 @@
-selected_tab: info_page
+selected_tab: oc_page
 selected_gpu: 1002:73EF-1EAE:6502-0000:03:00.0
 plots_time_period: 60
 plots_per_row: 2
 stats_poll_interval_ms: 500
 gpus:
-  1002:1638-103C:89D8-0000:0f:00.0:
-    plots:
-    - - !Temperature edge
-    - - GpuClock
-      - GpuTargetClock
-      - VramClock
-    - - FanPwm
-    - - PowerCurrent
   1002:73EF-1EAE:6502-0000:03:00.0:
     plots:
     - - !Temperature edge
@@ -24,3 +16,11 @@ gpus:
       - FanPwm
     - - PowerAverage
       - PowerCap
+  1002:1638-103C:89D8-0000:0f:00.0:
+    plots:
+    - - !Temperature edge
+    - - GpuClock
+      - GpuTargetClock
+      - VramClock
+    - - FanPwm
+    - - PowerCurrent
