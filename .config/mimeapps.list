@@ -37,6 +37,7 @@ video/vnd.radgamettools.bink=vlc.desktop;
 model/gltf-binary=blender.desktop;
 application/java-archive=java-java-openjdk.desktop;xarchiver.desktop;
 application/json=org.x.editor.desktop;
+text/x-chdr=org.x.editor.desktop;
 
 [Default Applications]
 x-scheme-handler/mailto=userapp-Thunderbird-U5MUM3.desktop
