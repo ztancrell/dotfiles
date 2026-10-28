@@ -7,7 +7,7 @@ paplay ~/.config/openbox/sound/desktop-login.oga >/dev/null 2>&1 &
 # USB plug/unplug sounds
 bash ~/.config/openbox/scripts/device-monitor.sh >/dev/null 2>&1 &
 
-# compositor (patched build from ~/projects/fastcompmgr, not the pacman one)
+# compositor (patched build from ~/projects/homestead/fastcompmgr, not the pacman one)
 /usr/local/bin/fastcompmgr --refresh-rate 100 &
 sleep 1
 
