@@ -4,6 +4,8 @@ function config() {
   git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
 }
 
+
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -27,3 +29,5 @@ export PATH="$HOME/.local/bin:$PATH"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+alias notifs='dunstctl history | jq -r ".data[][] | \"\(.summary.data): \(.body.data)\""'
