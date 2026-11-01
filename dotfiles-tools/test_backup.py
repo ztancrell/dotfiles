@@ -93,6 +93,22 @@ class BackupTests(unittest.TestCase):
             self.b.run()
         self.assertEqual('another git process', lock.read_text())
 
+    def test_only_real_cursor_files_allowed_as_binary(self):
+        cursors = self.home / '.icons/Test/cursors'
+        cursors.mkdir(parents=True)
+        (cursors / 'left_ptr').write_bytes(b'Xcur\xff\xfe')
+        self.b.git('add', '.icons')
+        self.b.git('commit', '-m', 'Add cursor')
+        self.b.scan('HEAD')
+        (cursors / 'left_ptr').write_bytes(b'\xff\xfenot a cursor')
+        (self.home / '.icons/Test/other').write_bytes(b'Xcur\xff\xfe')
+        self.b.git('add', '.icons')
+        self.b.git('commit', '-m', 'Add fakes')
+        with self.assertRaises(RuntimeError) as caught:
+            self.b.scan('HEAD')
+        self.assertIn('cursors/left_ptr: unexpected binary', str(caught.exception))
+        self.assertIn('.icons/Test/other: unexpected binary', str(caught.exception))
+
     def test_private_path_rejected(self):
         private = self.home / '.config/astro/config.json'
         private.parent.mkdir(parents=True)
