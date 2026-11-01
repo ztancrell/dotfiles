@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Homestead
+Comment=Homestead desktop theme: Adwaita-dark for GTK, Homestead for Openbox
+
+[X-GNOME-Metatheme]
+GtkTheme=Homestead
+MetacityTheme=Homestead
+IconTheme=Homestead
+CursorTheme=Homestead-Cursor

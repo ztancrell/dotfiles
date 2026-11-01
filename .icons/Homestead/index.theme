@@ -1,0 +1,5 @@
+[Icon Theme]
+Name=Homestead
+Comment=Homestead icons, inheriting Breeze Dark
+Inherits=breeze-dark,hicolor
+Directories=

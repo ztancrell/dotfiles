@@ -1,0 +1,8 @@
+[Unit]
+Description=Watch the Homestead tint2 config for tint2conf saves
+
+[Path]
+PathChanged=%h/.config/tint2/homestead.tint2rc
+
+[Install]
+WantedBy=default.target
