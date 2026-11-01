@@ -1,0 +1,4 @@
+[Icon Theme]
+Name=Homestead-Cursor
+Comment=Homestead cursor, inheriting KDE-classic
+Inherits=KDE-classic
