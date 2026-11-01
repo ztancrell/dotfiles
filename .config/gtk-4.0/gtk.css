@@ -1,13 +1,17 @@
-/* GTK4 dark mode settings */
-@define-color window_bg_color #242424;
-@define-color window_fg_color #ffffff;
-@define-color view_bg_color #1e1e1e;
-@define-color view_fg_color #ffffff;
-@define-color accent_bg_color #3584e4;
+/* Homestead GTK4: colours for libadwaita apps, which ignore GTK themes. */
+@define-color window_bg_color #0d0d0d;
+@define-color window_fg_color #e0e0e0;
+@define-color view_bg_color #0d0d0d;
+@define-color view_fg_color #e0e0e0;
+@define-color accent_bg_color #b22222;
 @define-color accent_fg_color #ffffff;
-@define-color headerbar_bg_color #303030;
-@define-color headerbar_fg_color #ffffff;
-@define-color card_bg_color #303030;
-@define-color card_fg_color #ffffff;
-@define-color popover_bg_color #383838;
-@define-color popover_fg_color #ffffff;
+@define-color accent_color #e04040;
+@define-color headerbar_bg_color #1a1a1a;
+@define-color headerbar_fg_color #e0e0e0;
+@define-color headerbar_backdrop_color #1a1a1a;
+@define-color card_bg_color #1a1a1a;
+@define-color card_fg_color #e0e0e0;
+@define-color dialog_bg_color #1a1a1a;
+@define-color dialog_fg_color #e0e0e0;
+@define-color popover_bg_color #1a1a1a;
+@define-color popover_fg_color #e0e0e0;

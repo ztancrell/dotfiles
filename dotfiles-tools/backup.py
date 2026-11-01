@@ -131,6 +131,10 @@ class Backup:
                 errors.append(f'{path}: too large for automatic review')
                 continue
             data = self.git('cat-file', 'blob', oid.decode())
+            # Cursor themes are binary, so require real Xcursor files in the expected place.
+            if path.startswith('.icons/') and '/cursors/' in path and data.startswith(b'Xcur'):
+                self.checked.add(identity)
+                continue
             try:
                 text = data.decode('utf-8-sig')
             except UnicodeError:
