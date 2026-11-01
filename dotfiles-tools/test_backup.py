@@ -109,6 +109,20 @@ class BackupTests(unittest.TestCase):
         self.assertIn('cursors/left_ptr: unexpected binary', str(caught.exception))
         self.assertIn('.icons/Test/other: unexpected binary', str(caught.exception))
 
+    def test_only_listed_claude_files_are_public(self):
+        claude = self.home / '.claude'
+        claude.mkdir()
+        (claude / 'CLAUDE.md').write_text('# notes\n')
+        self.b.git('add', '-f', '.claude/CLAUDE.md')
+        self.b.git('commit', '-m', 'Add notes')
+        self.b.scan('HEAD')
+        (claude / 'history.jsonl').write_text('{}\n')
+        self.b.git('add', '-f', '.claude/history.jsonl')
+        self.b.git('commit', '-m', 'Add history')
+        with self.assertRaises(RuntimeError) as caught:
+            self.b.scan('HEAD')
+        self.assertIn('.claude/history.jsonl: private path', str(caught.exception))
+
     def test_private_path_rejected(self):
         private = self.home / '.config/astro/config.json'
         private.parent.mkdir(parents=True)

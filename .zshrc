@@ -32,3 +32,10 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias notifs='dunstctl history | jq -r ".data[][] | \"\(.summary.data): \(.body.data)\""'
 alias upgrade='yay -Syyu && flatpak upgrade'
+
+# Graphics and gaming environment (moved from /etc/zsh/zshrc)
+export MESA_VK_WSI_PRESENT_MODE=fifo
+export RADV_PERFTEST='aco,nggc,gpl,rt'
+export RADV_FORCE_VRS=2x2
+export SDL_VIDEO_ALLOW_SCREENSAVER=0
+export VK_MAX_MEMORY_COUNT=256

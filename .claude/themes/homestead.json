@@ -1,0 +1,9 @@
+{
+  "name": "Homestead",
+  "base": "dark-ansi",
+  "overrides": {
+    "claude": "#e04040",
+    "error": "#ff6b6b",
+    "success": "#8fbf73"
+  }
+}
