@@ -1,5 +1,5 @@
 # ~/.config/fastfetch/config
-# Volcano / Ember theme — compact, amber accents, matching Alacritty
+# Volcano / Ember theme — compact, amber accents, matching Kitty
 
 # General layout
 info_format="key_value"          # compact: "Key: Value"
