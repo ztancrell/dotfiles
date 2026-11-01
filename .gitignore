@@ -79,10 +79,6 @@ id_ecdsa
 .config/Cursor/User/workspaceStorage/
 
 # Unused desktop environments (no longer used)
-.config/labwc/
-.config/lxqt/
-.config/waybar/
-.config/systemd/user/labwc-*
 
 # Machine-specific or bulky directories
 .dotfiles/
