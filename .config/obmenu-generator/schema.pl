@@ -31,7 +31,7 @@ our $SCHEMA = [
 
     #          COMMAND                 LABEL              ICON
     {item => ['xdg-open .',       'File Manager', 'system-file-manager']},
-    {item => ['alacritty',            'Terminal',     'utilities-terminal']},
+    {item => ['kitty',                'Terminal',     'utilities-terminal']},
     {item => ['xdg-open http://', 'Web Browser',  'web-browser']},
 
     {sep => 'Categories'},

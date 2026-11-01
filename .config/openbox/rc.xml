@@ -323,7 +323,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>alacritty</command>
+        <command>kitty</command>
         <startupnotify>
           <enabled>yes</enabled>
           <name>Terminal</name>

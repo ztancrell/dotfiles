@@ -128,4 +128,4 @@ contain previously tracked app state; exclusions do not erase Git history.
 Unused Bash startup files and Conky, Nitrogen, PCManFM, Sakura, and Mousepad configs
 are excluded. Their local copies were preserved. Bash helper scripts remain because
 their shebang selects Bash independently of the interactive Zsh shell. Openbox's
-file-manager, terminal, and editor shortcuts use Thunar, Alacritty, and Xed.
+file-manager, terminal, and editor shortcuts use Thunar, Kitty, and Xed.
