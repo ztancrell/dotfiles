@@ -18,9 +18,6 @@ source /usr/share/cachyos-zsh-config/cachyos-config.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/zpt/.lmstudio/bin"
-# End of LM Studio CLI section
 export PATH="$HOME/.local/bin:$PATH"
 
 # bun completions
@@ -32,10 +29,3 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias notifs='dunstctl history | jq -r ".data[][] | \"\(.summary.data): \(.body.data)\""'
 alias upgrade='yay -Syyu && flatpak upgrade'
-
-# Graphics and gaming environment (moved from /etc/zsh/zshrc)
-export MESA_VK_WSI_PRESENT_MODE=fifo
-export RADV_PERFTEST='aco,nggc,gpl,rt'
-export RADV_FORCE_VRS=2x2
-export SDL_VIDEO_ALLOW_SCREENSAVER=0
-export VK_MAX_MEMORY_COUNT=256
