@@ -31,3 +31,4 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias notifs='dunstctl history | jq -r ".data[][] | \"\(.summary.data): \(.body.data)\""'
+alias upgrade='yay -Syyu && flatpak upgrade'
