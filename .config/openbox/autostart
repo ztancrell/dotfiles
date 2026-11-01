@@ -1,5 +1,5 @@
 # polkit agent (if present)
-/usr/libexec/polkit-gnome-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # login sound
 paplay ~/.config/openbox/sound/desktop-login.oga >/dev/null 2>&1 &
@@ -16,10 +16,10 @@ xrandr --output HDMI-1 --primary --pos 0x0 --mode 1920x1080 --rate 100 \
        --output DP-3 --pos 1920x0 --mode 1920x1080 --rate 60
 
 # nightlight (only if script exists)
-/home/zpt/zpt/redshift-cli.sh start
+$HOME/redshift-cli.sh start &
 
 # wallpaper (FIXED: removed trailing '>')
-feh --bg-fill --randomize -r ~/.wallpapers/artstation ~/.wallpapers/sst ~/.wallpapers/b
+feh --bg-fill --randomize -r ~/.wallpapers/artstation ~/.wallpapers/sst ~/.wallpapers/berserk
 
 # tint2 and dunst
 tint2 -c /home/zpt/.config/tint2/horizontal-text-only.tint2rc &

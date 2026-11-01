@@ -93,6 +93,7 @@ our $SCHEMA = [
         {item => ["$editor ~/.config/openbox/menu.xml",  'Openbox Menu',        'text-x-generic']},
         {item => ['openbox --reconfigure',               'Reconfigure Openbox', 'openbox']},
       {end => undef},
+      {item => ['tint2conf', 'Tint2 Settings', 'tint2conf']},
     {end => undef},
 
     {sep => undef},

@@ -105,7 +105,7 @@ border_color_pressed = #d9d9d9 100
 
 #-------------------------------------
 # Panel
-panel_items = LTSC
+panel_items = TSC
 panel_size = 100% 32
 panel_margin = 0 0
 panel_padding = 5 2 4
@@ -198,12 +198,6 @@ launcher_icon_asb = 100 0 0
 launcher_icon_theme_override = 0
 startup_notifications = 1
 launcher_tooltip = 1
-launcher_item_app = tint2conf.desktop
-launcher_item_app = firefox.desktop
-launcher_item_app = iceweasel.desktop
-launcher_item_app = chromium-browser.desktop
-launcher_item_app = google-chrome.desktop
-launcher_item_app = x-terminal-emulator.desktop
 
 #-------------------------------------
 # Clock
@@ -219,7 +213,7 @@ clock_background_id = 0
 clock_tooltip = 
 clock_tooltip_timezone = 
 clock_lclick_command = zenity --calendar --text ""
-clock_rclick_command = orage
+clock_rclick_command = 
 clock_mclick_command = 
 clock_uwheel_command = 
 clock_dwheel_command = 

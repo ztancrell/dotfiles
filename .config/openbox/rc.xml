@@ -190,15 +190,6 @@
         <command>audacious -s</command>
       </action>
     </keybind>
-    <keybind key="XF86PowerOff">
-      <action name="Execute">
-        <command>oblogout</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>oblogout</name>
-        </startupnotify>
-      </action>
-    </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
         <command>audacious -t</command>
@@ -263,24 +254,6 @@
     <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
-    <keybind key="A-F2">
-      <action name="Execute">
-        <command>gmrun</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>gmrun</name>
-        </startupnotify>
-      </action>
-    </keybind>
-    <keybind key="A-F3">
-      <action name="Execute">
-        <command>~/.config/dmenu/dmenu-bind.sh</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>dmenu</name>
-        </startupnotify>
-      </action>
-    </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
       <action name="FocusToBottom"/>
@@ -314,7 +287,7 @@
     </keybind>
     <keybind key="W-w">
       <action name="Execute">
-        <command>chromium</command>
+        <command>firefox-nightly</command>
         <startupnotify>
           <enabled>yes</enabled>
           <name>Web Browser</name>
@@ -353,7 +326,7 @@
     </keybind>
     <keybind key="W-m">
       <action name="Execute">
-        <command>gmusicbrowser</command>
+        <command>audacious</command>
         <startupnotify>
           <enabled>yes</enabled>
           <name>Media Player</name>
@@ -362,7 +335,7 @@
     </keybind>
     <keybind key="W-l">
       <action name="Execute">
-        <command>slimlock</command>
+        <command>slock</command>
         <startupnotify>
           <enabled>yes</enabled>
           <name>lock</name>
@@ -370,13 +343,7 @@
       </action>
     </keybind>
     <keybind key="W-x">
-      <action name="Execute">
-        <command>oblogout</command>
-        <startupnotify>
-          <enabled>yes</enabled>
-          <name>Switches conky</name>
-        </startupnotify>
-      </action>
+      <action name="Exit"/>
     </keybind>
     <keybind key="W-space">
       <action name="ShowMenu">
@@ -433,12 +400,12 @@
     </keybind>
     <keybind key="XF86ScreenSaver">
       <action name="Execute">
-        <command>slimlock</command>
+        <command>slock</command>
       </action>
     </keybind>
     <keybind key="XF86Sleep">
       <action name="Execute">
-        <command>sudo pm-suspend</command>
+        <command>systemctl suspend</command>
       </action>
     </keybind>
   </keyboard>
