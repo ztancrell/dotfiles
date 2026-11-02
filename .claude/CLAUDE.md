@@ -19,3 +19,15 @@ Use the installation's recorded absolute launcher when present
 retrieved records, and say when a tool or native instruction is unavailable.
 Never claim cross-conversation recall from this chat alone. Preserve my native
 memory, identity, and unrelated instructions.
+
+## Stay on course (every project)
+
+I tend to forget a project's original idea and drift off course. In every project:
+
+- At the start of a session, if the project has a DESIGN.md, remind me in two or three lines of its
+  core idea and open decisions.
+- If it has none and we discuss what the project is for, offer to start a short DESIGN.md (the idea,
+  open questions, a "Decided" section).
+- When a request drifts from the idea, say so in one line and ask whether it's a change of direction
+  to record. Don't block it.
+- When I decide something about the design, update DESIGN.md.
