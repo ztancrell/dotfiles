@@ -39,6 +39,7 @@ application/json=org.x.editor.desktop;
 text/x-chdr=org.x.editor.desktop;
 text/x-c++src=org.x.editor.desktop;
 video/matroska=org.xfce.Parole.desktop;audacious.desktop;
+model/gltf+json=blender.desktop;
 
 [Default Applications]
 x-scheme-handler/mailto=userapp-Thunderbird-U5MUM3.desktop
@@ -77,3 +78,4 @@ model/gltf-binary=blender.desktop
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 inode/directory=thunar.desktop
 video/matroska=audacious.desktop
+model/gltf+json=blender.desktop
