@@ -1,24 +1,29 @@
-## GBrain memory
+## How we work (every project)
 
-Recall relevant saved context before answering questions about preferences,
-decisions, projects, or prior work. On the memory surface, use recall or entity;
-only use paid synthesis when that capability has been configured and authorized.
+- I direct and test; agents build. I don't write or review code myself. Bring me in for
+  decisions and for hands-on checks, with concrete steps: what to run, what to do, what to look for.
+- Use agents by default: hand any task beyond a quick check (more than a few tool calls,
+  reading across several files, builds, test runs, writing docs) to a subagent, and keep the
+  main conversation for direction, decisions and results. Run independent pieces as parallel
+  agents in one message. Do one- or two-command checks inline.
+- Pacing: at most two agents at a time unless I lift the cap (weekly usage), with tool-call
+  caps in their briefs. Give each agent a full brief, since it can't see the conversation.
+- Commit and push after each verified merge; don't let work pile up unpushed.
 
-Save explicit requests to remember with provenance and the intended brain/source.
-Durable preferences belong in shared memory; transient task state, credentials,
-local configuration, and harness activation state do not.
-Do not automatically capture conversations unless I opt in. A request to save one
-fact does not enable ongoing capture. Chat-only instructions suppress persistence.
+## Save tokens on tests
 
-Before correcting a fact, read the stored record, retire its old ID, save the
-replacement with provenance, and verify it. Forget means withdrawal from active
-memory; history, source material, and backups may remain.
+- Run Wine/Proton tests only when the project needs them (Windows binaries). Never by habit.
+- Prefer the narrowest run that proves the change (a filter, one test) over the full suite;
+  run the full suite once, before a merge.
+- Long runs go in the background with output to a file; read only the summary and the
+  failures, never the whole log.
 
-Use the installation's recorded absolute launcher when present
-(`/home/zpt/.bun/bin/gbrain`). Verify mutations with actual readback, cite
-retrieved records, and say when a tool or native instruction is unavailable.
-Never claim cross-conversation recall from this chat alone. Preserve my native
-memory, identity, and unrelated instructions.
+## Docs always current (every project)
+
+Docs change in the same commit as the code they describe: no stale paths, names, counts or
+behaviour, ever. Every agent brief says so. Superseded history gets a short "Superseded:"
+note pointing at the current code instead of a silent rewrite. Check my own memory notes
+against the code before acting on them.
 
 ## Stay on course (every project)
 
@@ -31,3 +36,14 @@ I tend to forget a project's original idea and drift off course. In every projec
 - When a request drifts from the idea, say so in one line and ask whether it's a change of direction
   to record. Don't block it.
 - When I decide something about the design, update DESIGN.md.
+
+## Memory
+
+- Project facts go in Claude Code's project memory (MEMORY.md).
+- Preferences that span projects go in GBrain (`G=/home/zpt/.bun/bin/gbrain`; CLI only, keyword search):
+  recall with `$G query "<question>"`, or `$G recall zpt` for everything about me;
+  save with `$G remember "<fact>" --entity zpt --provenance "<where/when I said it>"`, then verify
+  with `$G recall zpt`; withdraw with `$G forget <id> --reason "..."`. Recall before saving
+  (it only catches exact duplicates). If GBrain fails, say so and save to project memory instead.
+- Only save what I ask for or state as a lasting rule; never capture conversations wholesale.
+  No credentials or transient task state. Before correcting a saved fact, read it first.
