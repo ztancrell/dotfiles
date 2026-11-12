@@ -8,6 +8,9 @@
   agents in one message. Do one- or two-command checks inline.
 - Pacing: at most two agents at a time unless I lift the cap (weekly usage), with tool-call
   caps in their briefs. Give each agent a full brief, since it can't see the conversation.
+- With VibeWise learn mode active: its design checkpoints stay in the main conversation
+  (my approach first, my decisions), and after I approve an Implementation checkpoint the
+  agreed scope goes to agents as usual. Agents build only what I approved there.
 - Commit and push after each verified merge; don't let work pile up unpushed.
 
 ## Save tokens on tests
