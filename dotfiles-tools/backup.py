@@ -22,7 +22,10 @@ PRIVATE_PATHS = (
     '.config/Cursor/User/History/', '.local/', '.cache/',
 )
 # The only files under private paths that may be published.
-PUBLIC_EXCEPTIONS = {'.claude/CLAUDE.md', '.claude/statusline.js', '.claude/themes/homestead.json'}
+PUBLIC_EXCEPTIONS = {
+    '.claude/CLAUDE.md', '.claude/statusline.js', '.claude/themes/homestead.json',
+    '.claude/output-styles/bionic-reading.md', '.claude/output-styles/bionic-reading-learning.md',
+}
 PRIVATE_FILES = {
     '.netrc', '.npmrc', '.git-credentials', '.bash_history', '.zsh_history',
     '.config/heroic/config.json', '.config/gtk-2.0/gtkfilechooser.ini',
