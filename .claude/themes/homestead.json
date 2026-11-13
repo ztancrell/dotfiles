@@ -1,9 +1,10 @@
 {
   "name": "Homestead",
-  "base": "dark-ansi",
+  "base": "dark",
   "overrides": {
-    "claude": "#e04040",
-    "error": "#ff6b6b",
-    "success": "#8fbf73"
+    "claude": "#7aa2d6",
+    "error": "#e07a7a",
+    "success": "#8fbf73",
+    "warning": "#d9b36c"
   }
 }
