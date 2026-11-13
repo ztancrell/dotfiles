@@ -129,3 +129,10 @@ Unused Bash startup files and Conky, Nitrogen, PCManFM, Sakura, and Mousepad con
 are excluded. Their local copies were preserved. Bash helper scripts remain because
 their shebang selects Bash independently of the interactive Zsh shell. Openbox's
 file-manager, terminal, and editor shortcuts use Thunar, Kitty, and Xed.
+
+## Terminal font
+
+Kitty on CachyOS uses DejaVu Sans Mono (`.config/kitty/kitty.conf`; needs the `ttf-dejavu`
+package, otherwise kitty falls back to its default). `.config/alacritty/alacritty.toml` is the
+macOS Alacritty config and pins Menlo 11.25, the Apple font derived from DejaVu Sans Mono, so
+both machines look alike. That file is harmless on CachyOS.
