@@ -45,6 +45,19 @@
 - Long runs go in the background with output to a file; read only the summary and the
   failures, never the whole log.
 
+## Priority and load (every project)
+
+My rules (2026-11-14):
+1. On the machine: sound and the desktop come first, then agents, then my own apps.
+2. Heavy runs go one at a time, the heaviest first. A heavy run uses all cores for more than
+   about 10 minutes (a full test or check pass). Start it as
+   `~/.claude/bin/heavy-run <expected minutes> <command>`: it waits its turn, never interrupts
+   a running one, and exports `JOBS`. Small runs skip the queue and take
+   `$(~/.claude/bin/heavy-run --jobs)` parallel jobs. `heavy-run --status` shows the queue.
+3. Manage both loads, the machine and my weekly usage. When the two-agent cap binds, the task
+   that unblocks the most goes first, reviews next, side work last. Report each agent's token
+   count when it ends.
+
 ## Docs always current (every project)
 
 Docs change in the same commit as the code they describe: no stale paths, names, counts or
