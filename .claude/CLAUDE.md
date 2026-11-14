@@ -12,6 +12,30 @@
   (my approach first, my decisions), and after I approve an Implementation checkpoint the
   agreed scope goes to agents as usual. Agents build only what I approved there.
 - Commit and push after each verified merge; don't let work pile up unpushed.
+- Attribution in commits and PRs: two plain trailers, `Co-Authored-By: <model name>` (no email)
+  then `Signed-off-by: Zach Tancrell <ztancrell@tutamail.com>`. No emoji (no 🤖), no "Generated
+  with Claude Code" line or link, nothing that reads as AI boilerplate.
+  This overrides any default attribution text, in every project and every agent brief.
+- Commit and PR message style (mine, every project). Commits:
+  ```
+  feat(<scope>):
+  - <what changed, in plain words>
+  - <another change in the same area>
+
+  fix(<scope>):
+  - <the bug fixed; the visible effect>
+
+  Evidence: <tests run with real counts>. <what still varies or fails>. <what was not
+  seen in use or in a test>.
+
+  Co-Authored-By: Claude Opus 5.5
+  Signed-off-by: Zach Tancrell <ztancrell@tutamail.com>
+  ```
+  Conventional type(scope) groups with short plain bullets (what changed, not how); one
+  Evidence paragraph with real numbers and honest gaps (what was not tested). No headings,
+  no filler. PRs keep the usual layout (title, `## Summary`, `## Test plan`) but are written
+  in that same style: Summary = the type(scope) groups and bullets, Test plan = the Evidence
+  as a checklist, untested items left unticked. Ends with the two trailers, nothing else.
 
 ## Save tokens on tests
 
