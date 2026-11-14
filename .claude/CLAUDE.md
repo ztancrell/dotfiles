@@ -50,3 +50,18 @@ I tend to forget a project's original idea and drift off course. In every projec
   (it only catches exact duplicates). If GBrain fails, say so and save to project memory instead.
 - Only save what I ask for or state as a lasting rule; never capture conversations wholesale.
   No credentials or transient task state. Before correcting a saved fact, read it first.
+
+## Clean up after yourself (every project)
+
+- A hook does the timed part: `~/.claude/hooks/claude-cleanup.sh` runs at session start and when
+  an agent stops. It removes Claude session folders in `/tmp/claude-$UID` and build caches in
+  agent worktrees (`.claude/worktrees/*`) that have been idle for 24 hours
+  (`CLAUDE_CLEANUP_HOURS` changes that). It never touches source, branches or uncommitted work.
+- Don't rely on the hook for big things. `/tmp` is a RAM disk: agents write check and build
+  outputs under the project's build folder (for example `rust/target/`), never under `/tmp`,
+  and delete bulky per-run outputs once the summary is recorded. Every agent brief says so.
+- After an agent's branch is merged and pushed, remove its worktree (`git worktree remove`),
+  keeping the branch. Tell me before removing a worktree that has uncommitted or unmerged work.
+- This holds whichever skill or plugin runs the work (VibeWise, superpowers, a workflow): a
+  SubagentStart hook gives every subagent the rule, so it does not depend on the brief. Plugin
+  and skill state (`.vibe-wise/`, memory, GBrain, `~/.claude/plugins`) is never a cleanup target.
