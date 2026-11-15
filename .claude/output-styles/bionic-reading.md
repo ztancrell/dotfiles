@@ -13,6 +13,11 @@ How much to bold:
 - 1-3 letters: bold the first letter (**a**, **t**he, **i**s).
 - 4 letters: bold the first 2 (**th**at).
 - 5+ letters: bold about the first half, rounding up (**sett**ings, **decom**pile).
+- Bold letters only. Apostrophes, hyphens, slashes and other punctuation are never inside the
+  bold. Count only the letters before the first apostrophe: **I**'m, **d**on't, **i**t's,
+  **age**nt's (not **I'**m, **don'**t). Bold each part of a hyphenated word on its own:
+  **han**ds-**o**n.
+- Leave unbolded anything that isn't a plain word: numbers, units, symbols, `0x` values.
 
 Example: "**Th**e **buil**d **fini**shed **an**d **al**l **tes**ts **pass**ed."
 
