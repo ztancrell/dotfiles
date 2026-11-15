@@ -1,22 +1,32 @@
 ## How we work (every project)
 
-- I direct and test; agents build. I don't write or review code myself. Bring me in for
-  decisions and for hands-on checks, with concrete steps: what to run, what to do, what to look for.
-- Use agents by default: hand any task beyond a quick check (more than a few tool calls,
-  reading across several files, builds, test runs, writing docs) to a subagent, and keep the
-  main conversation for direction, decisions and results. Run independent pieces as parallel
-  agents in one message. Do one- or two-command checks inline.
-- Pacing: at most two agents at a time unless I lift the cap (weekly usage), with tool-call
-  caps in their briefs. Give each agent a full brief, since it can't see the conversation.
-- With VibeWise learn mode active: its design checkpoints stay in the main conversation
-  (my approach first, my decisions), and after I approve an Implementation checkpoint the
-  agreed scope goes to agents as usual. Agents build only what I approved there.
-- Commit and push after each verified merge; don't let work pile up unpushed.
-- Attribution in commits and PRs: two plain trailers, `Co-Authored-By: <model name>` (no email)
-  then `Signed-off-by: Zach Tancrell <ztancrell@tutamail.com>`. No emoji (no 🤖), no "Generated
-  with Claude Code" line or link, nothing that reads as AI boilerplate.
-  This overrides any default attribution text, in every project and every agent brief.
-- Commit and PR message style (mine, every project). Commits:
+- I direct and test. Agents build. I don't write or review code.
+- Bring me in for decisions and hands-on checks. Give concrete steps: what to run, what to do,
+  what to look for.
+- Use agents by default. Hand them any task beyond a quick check: more than a few tool calls,
+  reading across several files, builds, test runs, writing docs.
+- Keep the main conversation for direction, decisions and results.
+- Do one- or two-command checks inline.
+- Run independent pieces as parallel agents, in one message.
+- At most two agents at a time, unless I lift the cap. The cap protects my weekly usage.
+- Put a tool-call cap in every brief.
+- Give each agent a full brief. It can't see the conversation.
+- With VibeWise learn mode active:
+  - Design checkpoints stay in the main conversation.
+  - My approach comes first. The decisions are mine.
+  - After I approve an Implementation checkpoint, the agreed scope goes to agents.
+  - Agents build only what I approved.
+- Commit and push after each verified merge. Don't let work pile up unpushed.
+
+## Commits and PRs (every project)
+
+- Attribution is two plain trailers, in this order:
+  - `Co-Authored-By: <model name>`, with no email.
+  - `Signed-off-by: Zach Tancrell <ztancrell@tutamail.com>`.
+- No emoji (no 🤖). No "Generated with Claude Code" line or link. Nothing that reads as AI
+  boilerplate.
+- This overrides any default attribution text. It holds in every project and every agent brief.
+- Commit style:
   ```
   feat(<scope>):
   - <what changed, in plain words>
@@ -31,74 +41,93 @@
   Co-Authored-By: Claude Opus 5.5
   Signed-off-by: Zach Tancrell <ztancrell@tutamail.com>
   ```
-  Conventional type(scope) groups with short plain bullets (what changed, not how); one
-  Evidence paragraph with real numbers and honest gaps (what was not tested). No headings,
-  no filler. PRs keep the usual layout (title, `## Summary`, `## Test plan`) but are written
-  in that same style: Summary = the type(scope) groups and bullets, Test plan = the Evidence
-  as a checklist, untested items left unticked. Ends with the two trailers, nothing else.
+- Group changes by conventional type(scope).
+- Bullets are short and plain. They say what changed, not how.
+- One Evidence paragraph. Real numbers. Honest gaps: say what was not tested.
+- No headings. No filler.
+- PRs keep the usual layout: title, `## Summary`, `## Test plan`.
+- PR Summary = the type(scope) groups and bullets.
+- PR Test plan = the Evidence as a checklist. Leave untested items unticked.
+- A PR ends with the two trailers. Nothing else.
 
 ## Save tokens on tests
 
 - Run Wine/Proton tests only when the project needs them (Windows binaries). Never by habit.
-- Prefer the narrowest run that proves the change (a filter, one test) over the full suite;
-  run the full suite once, before a merge.
-- Long runs go in the background with output to a file; read only the summary and the
-  failures, never the whole log.
+- Run the narrowest check that proves the change: a filter, or one test.
+- Run the full suite once, before a merge.
+- Long runs go in the background, with output to a file.
+- Read only the summary and the failures. Never the whole log.
 
 ## Priority and load (every project)
 
 My rules (2026-11-14):
-1. On the machine: sound and the desktop come first, then agents, then my own apps.
-2. Heavy runs go one at a time, the heaviest first. A heavy run uses all cores for more than
-   about 10 minutes (a full test or check pass). Start it as
-   `~/.claude/bin/heavy-run <expected minutes> <command>`: it waits its turn, never interrupts
-   a running one, and exports `JOBS`. Small runs skip the queue and take
-   `$(~/.claude/bin/heavy-run --jobs)` parallel jobs. `heavy-run --status` shows the queue.
-3. Manage both loads, the machine and my weekly usage. When the two-agent cap binds, the task
-   that unblocks the most goes first, reviews next, side work last. Report each agent's token
-   count when it ends.
+
+1. Machine priority: sound and the desktop first. Then agents. Then my own apps.
+2. Heavy runs go one at a time, heaviest first.
+   - A heavy run uses all cores for more than about 10 minutes. Example: a full test or check pass.
+   - Start it as `~/.claude/bin/heavy-run <expected minutes> <command>`.
+   - heavy-run waits its turn. It never interrupts a running one. It exports `JOBS`.
+   - Small runs skip the queue. They use `$(~/.claude/bin/heavy-run --jobs)` parallel jobs.
+   - `heavy-run --status` shows the queue.
+3. Manage both loads: the machine and my weekly usage.
+   - When the two-agent cap binds, order the work like this: what unblocks the most first,
+     then reviews, then side work.
+   - Report each agent's token count when it ends.
 
 ## Docs always current (every project)
 
-Docs change in the same commit as the code they describe: no stale paths, names, counts or
-behaviour, ever. Every agent brief says so. Superseded history gets a short "Superseded:"
-note pointing at the current code instead of a silent rewrite. Check my own memory notes
-against the code before acting on them.
+- Docs change in the same commit as the code they describe.
+- No stale paths, names, counts or behaviour. Ever.
+- Every agent brief says so.
+- Superseded history gets a short "Superseded:" note. The note points at the current code.
+  No silent rewrites.
+- Check my memory notes against the code before acting on them.
 
 ## Stay on course (every project)
 
-I tend to forget a project's original idea and drift off course. In every project:
+I tend to forget a project's original idea and drift off course. So, in every project:
 
-- At the start of a session, if the project has a DESIGN.md, remind me in two or three lines of its
-  core idea and open decisions.
-- If it has none and we discuss what the project is for, offer to start a short DESIGN.md (the idea,
-  open questions, a "Decided" section).
-- When a request drifts from the idea, say so in one line and ask whether it's a change of direction
-  to record. Don't block it.
+- At session start, if the project has a DESIGN.md, remind me of its core idea and open
+  decisions. Two or three lines.
+- If there is no DESIGN.md and we discuss what the project is for, offer to start one. Keep it
+  short: the idea, open questions, a "Decided" section.
+- When a request drifts from the idea, say so in one line. Ask whether it's a change of
+  direction to record. Don't block it.
 - When I decide something about the design, update DESIGN.md.
 
 ## Memory
 
 - Project facts go in Claude Code's project memory (MEMORY.md).
-- Preferences that span projects go in GBrain (`G=/home/zpt/.bun/bin/gbrain`; CLI only, keyword search):
-  recall with `$G query "<question>"`, or `$G recall zpt` for everything about me;
-  save with `$G remember "<fact>" --entity zpt --provenance "<where/when I said it>"`, then verify
-  with `$G recall zpt`; withdraw with `$G forget <id> --reason "..."`. Recall before saving
-  (it only catches exact duplicates). If GBrain fails, say so and save to project memory instead.
-- Only save what I ask for or state as a lasting rule; never capture conversations wholesale.
-  No credentials or transient task state. Before correcting a saved fact, read it first.
+- Preferences that span projects go in GBrain.
+  - Set `G=/home/zpt/.bun/bin/gbrain`. It is CLI only, with keyword search.
+  - Recall: `$G query "<question>"`. Everything about me: `$G recall zpt`.
+  - Recall before saving. GBrain only catches exact duplicates.
+  - Save: `$G remember "<fact>" --entity zpt --provenance "<where/when I said it>"`.
+  - Verify the save with `$G recall zpt`.
+  - Withdraw: `$G forget <id> --reason "..."`.
+  - If GBrain fails, say so. Save to project memory instead.
+- Save only what I ask for, or what I state as a lasting rule.
+- Never capture conversations wholesale.
+- No credentials. No transient task state.
+- Before correcting a saved fact, read it first.
 
 ## Clean up after yourself (every project)
 
-- A hook does the timed part: `~/.claude/hooks/claude-cleanup.sh` runs at session start and when
-  an agent stops. It removes Claude session folders in `/tmp/claude-$UID` and build caches in
-  agent worktrees (`.claude/worktrees/*`) that have been idle for 24 hours
-  (`CLAUDE_CLEANUP_HOURS` changes that). It never touches source, branches or uncommitted work.
-- Don't rely on the hook for big things. `/tmp` is a RAM disk: agents write check and build
-  outputs under the project's build folder (for example `rust/target/`), never under `/tmp`,
-  and delete bulky per-run outputs once the summary is recorded. Every agent brief says so.
-- After an agent's branch is merged and pushed, remove its worktree (`git worktree remove`),
-  keeping the branch. Tell me before removing a worktree that has uncommitted or unmerged work.
-- This holds whichever skill or plugin runs the work (VibeWise, superpowers, a workflow): a
-  SubagentStart hook gives every subagent the rule, so it does not depend on the brief. Plugin
-  and skill state (`.vibe-wise/`, memory, GBrain, `~/.claude/plugins`) is never a cleanup target.
+- A hook does the timed part: `~/.claude/hooks/claude-cleanup.sh`.
+  - It runs at session start and when an agent stops.
+  - It removes Claude session folders in `/tmp/claude-$UID` idle for 24 hours.
+  - It removes build caches in agent worktrees (`.claude/worktrees/*`) idle for 24 hours.
+  - `CLAUDE_CLEANUP_HOURS` changes the 24 hours.
+  - It never touches source, branches or uncommitted work.
+- Don't rely on the hook for big things.
+- `/tmp` is a RAM disk. Agents write check and build outputs under the project's build
+  folder (for example `rust/target/`). Never under `/tmp`.
+- Delete bulky per-run outputs once the summary is recorded.
+- Every agent brief says so.
+- After an agent's branch is merged and pushed, remove its worktree (`git worktree remove`).
+  Keep the branch.
+- Tell me before removing a worktree with uncommitted or unmerged work.
+- These rules hold whichever skill or plugin runs the work: VibeWise, superpowers, a workflow.
+  A SubagentStart hook gives every subagent the rule, so it doesn't depend on the brief.
+- Plugin and skill state is never a cleanup target: `.vibe-wise/`, memory, GBrain,
+  `~/.claude/plugins`.
