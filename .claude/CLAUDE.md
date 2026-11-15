@@ -73,6 +73,13 @@ My rules (2026-11-14):
    - When the two-agent cap binds, order the work like this: what unblocks the most first,
      then reviews, then side work.
    - Report each agent's token count when it ends.
+4. Keep both machines busy (2026-11-15).
+   - Two machines: this desktop and a MacBook Pro (`ssh 192.168.254.18`, user `zpt`).
+   - When either has free capacity, start waiting work on it. Don't leave one idle while
+     work queues.
+   - Machine capacity is separate from the two-agent cap. One agent can drive work on both.
+   - Results from the Mac count only after it matched the desktop on the same checks once.
+   - Wrap long Mac runs in `caffeinate -i`. Homebrew lives in `/usr/local` (not on the ssh PATH).
 
 ## Docs always current (every project)
 
