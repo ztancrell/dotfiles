@@ -1,0 +1,150 @@
+#!/bin/sh
+# heavy-run: one heavy run at a time on this machine, heaviest waiter first.
+#
+#   heavy-run <minutes> [--] <command...>  wait for the turn, run the command, exit with
+#                                          its exit code; <minutes> is the expected length
+#                                          of the run (its weight). JOBS is exported as the
+#                                          number of CPU threads unless already set.
+#   heavy-run --jobs      parallel jobs a small run may use now: all CPU threads when no
+#                         heavy run holds the machine, a quarter (at least 1) while one does
+#   heavy-run --status    "free" or the holder's line, then the waiters, heaviest first
+#   heavy-run --selftest  prove the queue order in a private state folder
+#
+# Rule from the owner (2026-11-14): heavy runs go one at a time, heaviest first. A heavy
+# run is one that uses all cores for more than about 10 minutes; small runs skip the queue.
+#
+# State: ${HEAVY_RUN_DIR:-${XDG_CACHE_HOME:-$HOME/.cache}/claude-heavy} (lock, holder,
+# wait/<weight>.<pid>). Poll interval: HEAVY_RUN_POLL seconds (default 5).
+
+DIR=${HEAVY_RUN_DIR:-${XDG_CACHE_HOME:-$HOME/.cache}/claude-heavy}
+LOCK=$DIR/lock HOLDER=$DIR/holder WAIT=$DIR/wait
+POLL=${HEAVY_RUN_POLL:-5}
+
+usage() {
+	echo "usage: heavy-run <minutes> [--] <command...> | --jobs | --status | --selftest" >&2
+	exit 2
+}
+
+# True while a live wrapper holds the machine (holder file whose pid is alive).
+held() {
+	[ -f "$HOLDER" ] && read -r _ hp _ <"$HOLDER" && kill -0 "$hp" 2>/dev/null
+}
+
+# Live wait entries, heaviest first, ties in arrival order (mtime); dead ones are dropped.
+waiters() {
+	for f in "$WAIT"/*; do
+		[ -e "$f" ] || continue
+		kill -0 "${f##*.}" 2>/dev/null || rm -f "$f"
+	done
+	ls -tr "$WAIT" 2>/dev/null | sort -s -t. -k1,1nr
+}
+
+selftest() {
+	T=$DIR/selftest.$$
+	SH=$(readlink "/proc/$$/exe" 2>/dev/null) || SH=sh
+	mkdir -p "$T" || exit 1
+	HEAVY_RUN_DIR=$T/state HEAVY_RUN_POLL=0.2
+	export HEAVY_RUN_DIR HEAVY_RUN_POLL
+	fail() {
+		echo "heavy-run selftest: FAIL: $*" >&2
+		kill $p1 $p2 $p3 2>/dev/null
+		wait
+		rm -rf "$T"
+		exit 1
+	}
+	await() { # $1: glob that must come to exist (60 s limit)
+		i=0
+		until ls $1 >/dev/null 2>&1; do
+			i=$((i + 1))
+			[ "$i" -lt 600 ] || fail "timed out waiting for $1"
+			sleep 0.1
+		done
+	}
+	n=$(nproc) q=$(($(nproc) / 4))
+	[ "$q" -ge 1 ] || q=1
+	p1='' p2='' p3=''
+	"$SH" "$0" 1 -- sh -c "echo 'start 1' >>'$T/log'; until [ -e '$T/go' ]; do sleep 0.1; done; echo 'end 1' >>'$T/log'" &
+	p1=$!
+	await "$T/state/holder"
+	"$SH" "$0" 5 -- sh -c "echo 'start 5' >>'$T/log'; echo 'end 5' >>'$T/log'" &
+	p2=$!
+	await "$T/state/wait/5.*"
+	"$SH" "$0" 9 -- sh -c "echo 'start 9' >>'$T/log'; echo 'end 9' >>'$T/log'" &
+	p3=$!
+	await "$T/state/wait/9.*"
+	j=$("$SH" "$0" --jobs)
+	[ "$j" = "$q" ] || fail "--jobs printed $j while held, expected $q"
+	: >"$T/go"
+	for p in $p1 $p2 $p3; do
+		wait "$p" || fail "a run exited with $?"
+	done
+	got=$(tr '\n' ',' <"$T/log")
+	[ "$got" = "start 1,end 1,start 9,end 9,start 5,end 5," ] || fail "order was: $got"
+	j=$("$SH" "$0" --jobs)
+	[ "$j" = "$n" ] || fail "--jobs printed $j when free, expected $n"
+	left=$(ls -d "$T/state/holder" "$T/state/wait"/* 2>/dev/null)
+	[ -z "$left" ] || fail "state left behind: $left"
+	rm -rf "$T"
+	echo "heavy-run selftest: ok"
+	exit 0
+}
+
+case ${1-} in
+--jobs)
+	n=$(nproc)
+	if held; then
+		n=$((n / 4))
+		[ "$n" -ge 1 ] || n=1
+	fi
+	echo "$n"
+	exit 0
+	;;
+--status)
+	if held; then echo "holder: $(cat "$HOLDER")"; else echo "free"; fi
+	waiters | while IFS=. read -r ww wp; do echo "waiter: weight $ww pid $wp"; done
+	exit 0
+	;;
+--selftest) selftest ;;
+'' | *[!0-9]* | 0*) usage ;;
+esac
+
+w=$1
+shift
+[ "${1-}" = -- ] && shift
+[ $# -ge 1 ] || usage
+
+mkdir -p "$WAIT" || exit 1
+me=$WAIT/$w.$$
+got='' child=''
+cleanup() {
+	rm -f "$me"
+	[ -z "$got" ] || rm -f "$HOLDER"
+}
+# On a signal: stop the command, wait for it, then give the machine back.
+# ponytail: only the direct child is signalled; kill its process group if grandchildren linger.
+stop() {
+	[ -z "$child" ] || { kill "$child" 2>/dev/null; wait "$child"; }
+	exit "$1"
+}
+trap cleanup EXIT
+trap 'stop 130' INT
+trap 'stop 143' TERM
+
+exec 9>>"$LOCK" || exit 1
+: >"$me"
+until [ "$(waiters | head -n 1)" = "$w.$$" ] && flock -n 9; do
+	sleep "$POLL" 9>&-
+done
+got=1
+printf '%s %s %s %s %s\n' "$w" "$$" "$(date +%Y-%m-%dT%H:%M:%S)" "$PWD" "$*" >"$HOLDER"
+rm -f "$me"
+
+JOBS=${JOBS:-$(nproc)}
+export JOBS
+# Run in the background so the traps fire at once; keep the real stdin (fd 8) and keep
+# the lock's descriptor (fd 9) away from the command.
+exec 8<&0
+"$@" <&8 8<&- 9>&- &
+child=$!
+wait "$child"
+exit $?
