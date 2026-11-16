@@ -35,8 +35,9 @@ Adapted from ChrisTitusTech/titstack (2026-11-16). Every agent brief says so.
 - My action words set the scope:
   - "Inspect", "review", "diagnose", "report", "check": look and report. Build nothing.
   - "Fix", "update", "implement": do the change and its checks.
-- A sequence of steps I name is one approval. Do every step without asking again, unless
-  blocked or a new risky choice comes up.
+- A sequence of steps I name is one approval, once any design choice in it is mine and
+  approved. Do every step without asking again, unless blocked or a new risky choice comes
+  up. New design still comes to me first (VibeWise checkpoints).
 - A stop point I name is hard. Stop there and wait.
 
 ## Commits and PRs (every project)
