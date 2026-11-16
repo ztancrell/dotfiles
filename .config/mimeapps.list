@@ -40,6 +40,7 @@ text/x-chdr=org.x.editor.desktop;
 text/x-c++src=org.x.editor.desktop;
 video/matroska=org.xfce.Parole.desktop;audacious.desktop;
 model/gltf+json=blender.desktop;
+text/markdown=org.x.editor.desktop;
 
 [Default Applications]
 x-scheme-handler/mailto=userapp-Thunderbird-U5MUM3.desktop

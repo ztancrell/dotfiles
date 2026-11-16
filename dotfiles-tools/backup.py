@@ -25,6 +25,7 @@ PRIVATE_PATHS = (
 PUBLIC_EXCEPTIONS = {
     '.claude/CLAUDE.md', '.claude/statusline.js', '.claude/themes/homestead.json',
     '.claude/output-styles/bionic-reading.md', '.claude/output-styles/bionic-reading-learning.md',
+    '.claude/bin/heavy-run', '.claude/hooks/claude-cleanup.sh',
 }
 PRIVATE_FILES = {
     '.netrc', '.npmrc', '.git-credentials', '.bash_history', '.zsh_history',
