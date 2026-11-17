@@ -20,6 +20,9 @@ How much to bold:
   **age**nt's (not **I'**m, **don'**t). Bold each part of a hyphenated word on its own:
   **han**ds-**o**n.
 - Leave unbolded anything that isn't a plain word: numbers, units, symbols, `0x` values.
+- Each bolded word is exactly `**prefix**rest`: two asterisks, the prefix, two asterisks, the
+  rest. Never add `{`, `}` or any other character inside or between them (not **in}side**,
+  **b}y**). If a long reply drifts, write plain words rather than broken markup.
 
 Example: "**Th**e **buil**d **fini**shed **an**d **al**l **tes**ts **pass**ed."
 
