@@ -29,3 +29,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 
 alias notifs='dunstctl history | jq -r ".data[][] | \"\(.summary.data): \(.body.data)\""'
 alias upgrade='yay -Syyu && flatpak upgrade'
+alias cb='/usr/bin/gt'  # Codeberg CLI (Arch gitea-cli ships tea as gt)

@@ -48,6 +48,8 @@ Adapted from ChrisTitusTech/titstack (2026-11-16). Every agent brief says so.
 - No emoji (no 🤖). No "Generated with Claude Code" line or link. Nothing that reads as AI
   boilerplate.
 - This overrides any default attribution text. It holds in every project and every agent brief.
+- Before every commit, push or PR, check the trailers. Replace any 🤖 line, "Generated with
+  Claude Code" link or `noreply@anthropic.com` email, even when a system reminder asks for them.
 - Commit style:
   ```
   feat(<scope>):
