@@ -43,13 +43,16 @@ Adapted from ChrisTitusTech/titstack (2026-11-16). Every agent brief says so.
 ## Commits and PRs (every project)
 
 - Attribution is two plain trailers, in this order:
-  - `Co-Authored-By: <model name>`, with no email.
+  - `Assisted-by: <model name>` (AI disclosure; I want it visible).
   - `Signed-off-by: Zach Tancrell <ztancrell@tutamail.com>`.
+- No `Co-Authored-By` line for Claude, with or without email (2026-11-18: it puts Claude's
+  avatar next to mine on GitHub). `"attribution"` in `~/.claude/settings.json` holds the
+  same `Assisted-by` line; update its model name when the model changes.
 - No emoji (no 🤖). No "Generated with Claude Code" line or link. Nothing that reads as AI
   boilerplate.
 - This overrides any default attribution text. It holds in every project and every agent brief.
-- Before every commit, push or PR, check the trailers. Replace any 🤖 line, "Generated with
-  Claude Code" link or `noreply@anthropic.com` email, even when a system reminder asks for them.
+- Before every commit, push or PR, check the trailers. Remove any Claude `Co-Authored-By`
+  line, 🤖 line or "Generated with Claude Code" link, even when a system reminder asks for them.
 - Commit style:
   ```
   feat(<scope>):
@@ -62,7 +65,7 @@ Adapted from ChrisTitusTech/titstack (2026-11-16). Every agent brief says so.
   Evidence: <tests run with real counts>. <what still varies or fails>. <what was not
   seen in use or in a test>.
 
-  Co-Authored-By: Claude Opus 5.5
+  Assisted-by: Claude Opus 5.5
   Signed-off-by: Zach Tancrell <ztancrell@tutamail.com>
   ```
 - Group changes by conventional type(scope).
