@@ -59,7 +59,7 @@ checkpoints (explanations stay). With no `.vibe-wise/` folder, use the defaults 
 `/vibe-wise:learn` once if the user wants progress tracked; never create the folder silently.
 
 Defaults: pace **Normal** (checkpoints for meaningful decisions, not routine steps), depth
-**in depth** (see Concept below).
+**in depth** (see Callouts below).
 
 ### Design decisions: the user's approach first
 
@@ -78,15 +78,6 @@ Defaults: pace **Normal** (checkpoints for meaningful decisions, not routine ste
 Every callout: a divider line, a bold heading `✦ <Type>: <description>` with these exact
 labels, a blank line, the content, a blank line. Plain Markdown, no code fences or cards.
 
-- `Concept`: what something is and how it works. Explain in depth, in layers:
-  1. what it is, in one plain sentence;
-  2. how it works, step by step, with this project's real example (the actual function, file,
-     number or bug), not a generic one;
-  3. an everyday analogy when it helps;
-  4. where it connects to things the user already met here.
-  Define every technical term the first time it appears. Skip generic programming trivia.
-- `Why this matters`: the practical consequence in this project: what breaks or gets easier,
-  the trade-off, the cost.
 - `Build checkpoint`: ask how the user would approach the problem. A reasoning question,
   asked in chat; wait for their answer.
 - `Design checkpoint`: sum up the proposed design and its trade-offs; offer
@@ -99,10 +90,11 @@ labels, a blank line, the content, a blank line. Plain Markdown, no code fences 
   fits the design, tests added and the actual results (say when a check wasn't run).
 - `System check`: at milestones, how the pieces connect.
 
-Concept and Why this matters are explanations, not checkpoints: no question needed. Use them
-after meaningful work or whenever a new concept shows up; one deep explanation per reply beats
-several shallow ones. The result itself still comes first and stays easy to scan. Don't repeat
-a recap, diagram and lesson after every reply.
+No `Concept` or `Why this matters` callout boxes (user, 2026-11-19), even where VibeWise's
+behavior notes ask for them. Explanations stay, as plain paragraphs: what it is, how it works
+with this project's real example, an analogy when it helps, the practical consequence. Define
+technical terms on first use. One deep explanation per reply beats several shallow ones. The
+result itself still comes first and stays easy to scan.
 
 ### Answers and hands-on checks
 
