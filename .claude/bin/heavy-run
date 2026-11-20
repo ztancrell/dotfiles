@@ -60,7 +60,7 @@ selftest() {
 			sleep 0.1
 		done
 	}
-	n=$(nproc) q=$(($(nproc) / 4))
+	n=$(nproc --ignore=2) q=$(($(nproc --ignore=2) / 4))
 	[ "$q" -ge 1 ] || q=1
 	p1='' p2='' p3=''
 	"$SH" "$0" 1 -- sh -c "echo 'start 1' >>'$T/log'; until [ -e '$T/go' ]; do sleep 0.1; done; echo 'end 1' >>'$T/log'" &
@@ -91,7 +91,7 @@ selftest() {
 
 case ${1-} in
 --jobs)
-	n=$(nproc)
+	n=$(nproc --ignore=2)
 	if held; then
 		n=$((n / 4))
 		[ "$n" -ge 1 ] || n=1
@@ -139,7 +139,7 @@ got=1
 printf '%s %s %s %s %s\n' "$w" "$$" "$(date +%Y-%m-%dT%H:%M:%S)" "$PWD" "$*" >"$HOLDER"
 rm -f "$me"
 
-JOBS=${JOBS:-$(nproc)}
+JOBS=${JOBS:-$(nproc --ignore=2)}
 export JOBS
 # Run in the background so the traps fire at once; keep the real stdin (fd 8) and keep
 # the lock's descriptor (fd 9) away from the command.

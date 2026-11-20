@@ -101,13 +101,14 @@ My rules (2026-11-14):
    - Start it as `~/.claude/bin/heavy-run <expected minutes> <command>`.
    - heavy-run waits its turn. It never interrupts a running one. It exports `JOBS`.
    - Small runs skip the queue. They use `$(~/.claude/bin/heavy-run --jobs)` parallel jobs.
+   - Jobs default to all cores but 2 (10 of 12): 2 stay free for the OS and apps (2026-11-20).
    - `heavy-run --status` shows the queue.
 3. Manage both loads: the machine and my weekly usage.
    - When the two-agent cap binds, order the work like this: what unblocks the most first,
      then reviews, then side work.
    - Report each agent's token count when it ends.
 4. Keep both machines busy (2026-11-15).
-   - Two machines: this desktop and a MacBook Pro (`ssh 192.168.254.10`, user `zpt`).
+   - Two machines: this desktop and a MacBook Pro (`ssh 192.168.254.18`, user `zpt`; DHCP can move it).
    - When either has free capacity, start waiting work on it. Don't leave one idle while
      work queues.
    - Machine capacity is separate from the two-agent cap. One agent can drive work on both.
