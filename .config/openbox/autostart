@@ -17,8 +17,12 @@ pkill -x fastcompmgr; sleep 0.3; fastcompmgr --refresh-rate 100 &
 # nightlight (only if script exists)
 [ -x "$HOME/redshift-cli.sh" ] && "$HOME/redshift-cli.sh" start &
 
-# synergy (only if installed)
-[ -x /opt/Synergy/synergy ] && /opt/Synergy/synergy &
+# synergy (only if installed). synergy-service replaces the package's systemd user unit
+# (synergy-3.service: restart on failure after 1 s); the GUI talks to it.
+if [ -x /opt/Synergy/synergy ]; then
+  (cd /opt/Synergy && until ./synergy-service -d; do sleep 1; done) &
+  /opt/Synergy/synergy &
+fi
 
 # wallpaper: my picks instead of the whole Homestead set
 feh --bg-fill --randomize -r ~/.wallpapers/artstation ~/.wallpapers/sst ~/.wallpapers/berserk
