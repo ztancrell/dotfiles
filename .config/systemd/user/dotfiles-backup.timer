@@ -1,0 +1,11 @@
+[Unit]
+Description=Back up tracked dotfiles hourly
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+RandomizedDelaySec=5min
+Unit=dotfiles-backup.service
+
+[Install]
+WantedBy=timers.target
