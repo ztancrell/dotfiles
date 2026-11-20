@@ -1,29 +1,28 @@
-# polkit agent (if present)
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+# Personal additions only. openbox-autostart runs /etc/xdg/openbox/autostart (homestead-theme) first, which
+# already starts polkit, the login and USB sounds, fastcompmgr, feh, tint2, dunst and the XDG autostart
+# entries (dex); repeating them here would run each twice. (CachyOS version: in ~/.dotfiles history.)
 
-# login sound
-paplay ~/.config/openbox/sound/desktop-login.oga >/dev/null 2>&1 &
-
-# USB plug/unplug sounds
-bash ~/.config/openbox/scripts/device-monitor.sh >/dev/null 2>&1 &
-
-# compositor (patched build from ~/projects/homestead/fastcompmgr, not the pacman one)
-/usr/bin/fastcompmgr --refresh-rate 100 &
-sleep 1
+# Until homestead-theme has it: give D-Bus-started services (file dialog portal) the X display.
+grep -q dbus-update-activation-environment /etc/xdg/openbox/autostart || \
+  dbus-update-activation-environment DISPLAY XAUTHORITY XDG_SESSION_TYPE QT_QPA_PLATFORMTHEME XCURSOR_THEME XCURSOR_SIZE
 
 # xrandr
 xrandr --output HDMI-1 --primary --pos 0x0 --mode 1920x1080 --rate 100 \
        --output DP-3 --pos 1920x0 --mode 1920x1080 --rate 60
 
+# fastcompmgr reads the refresh rate once at start, and the system autostart starts it before the xrandr
+# above, so it would pace for 60 Hz. Restart it at the 100 Hz my old setup used.
+pkill -x fastcompmgr; sleep 0.3; fastcompmgr --refresh-rate 100 &
+
 # nightlight (only if script exists)
-$HOME/redshift-cli.sh start &
+[ -x "$HOME/redshift-cli.sh" ] && "$HOME/redshift-cli.sh" start &
 
-# synergy
-/opt/Synergy/synergy &
+# synergy (only if installed)
+[ -x /opt/Synergy/synergy ] && /opt/Synergy/synergy &
 
-# wallpaper (FIXED: removed trailing '>')
+# wallpaper: my picks instead of the whole Homestead set
 feh --bg-fill --randomize -r ~/.wallpapers/artstation ~/.wallpapers/sst ~/.wallpapers/berserk
 
-# tint2 and dunst
-tint2 -c /home/zpt/.config/tint2/homestead.tint2rc &
-dunst &
+# Until homestead-theme r25 is installed: the old system autostart has no dex, so the tray applets
+# would not start. Turns itself off once /etc/xdg/openbox/autostart has dex.
+grep -q 'dex -a' /etc/xdg/openbox/autostart || { sleep 1; dex -a -e Openbox; } &

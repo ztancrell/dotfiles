@@ -1,2 +1,8 @@
-/* Homestead GTK3: same look as Adwaita-dark, under our own name. */
-@import url("file:///usr/share/themes/Adwaita-dark/gtk-3.0/gtk.css");
+/* Homestead GTK3: same look as Adwaita-dark, under our own name. Imported from GTK's built-in resource:
+   /usr/share/themes/Adwaita-dark only exists with gnome-themes-extra, and without it the import failed,
+   GTK 3 apps got no theme and, under the compositor, transparent windows. */
+@import url("resource:///org/gtk/libgtk/theme/Adwaita/gtk-contained-dark.css");
+
+/* Solid tooltips: Adwaita-dark draws them at 80% opacity, which reads as see-through under the compositor. */
+tooltip.background { background-color: #1a1a1a; border: 1px solid #2a2a2a; }
+tooltip.background * { background-color: transparent; }
