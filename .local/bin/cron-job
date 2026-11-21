@@ -1,0 +1,24 @@
+#!/bin/sh
+# cron-job NAME COMMAND [ARGS...]: run a scheduled job from cron (OpenRC has no systemd timers).
+# Output goes to ~/.local/state/cron/NAME.log (last 2000 lines kept); on failure a critical desktop
+# notification points at it, like the old systemd OnFailure= units.
+name=$1; shift
+log="$HOME/.local/state/cron/$name.log"
+mkdir -p "${log%/*}"
+# cron starts jobs without the desktop session's environment: notify-send needs the session bus and X.
+export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=/run/user/$(id -u)/bus}"
+export DISPLAY="${DISPLAY:-:0}"
+# Flatpak registers each app under $XDG_RUNTIME_DIR/.flatpak/; without it the portals refuse the app
+# (ProtonPlus's downloads failed with "Portal operation not allowed ... bwrapinfo.json").
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+export GIT_TERMINAL_PROMPT=0
+cd "$HOME" || exit 1
+{ echo "=== $(date '+%F %T') start: $*"; } >> "$log"
+"$@" >> "$log" 2>&1
+rc=$?
+echo "=== $(date '+%F %T') exit $rc" >> "$log"
+tail -n 2000 "$log" > "$log.tmp" && mv "$log.tmp" "$log"
+if [ "$rc" -ne 0 ]; then
+  notify-send --urgency=critical "$name needs attention" "Exit $rc. See ~/.local/state/cron/$name.log"
+fi
+exit "$rc"
