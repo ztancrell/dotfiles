@@ -80,3 +80,4 @@ x-scheme-handler/claude-cli=claude-code-url-handler.desktop
 inode/directory=thunar.desktop
 video/matroska=audacious.desktop
 model/gltf+json=blender.desktop
+x-scheme-handler/discord=vesktop.desktop
