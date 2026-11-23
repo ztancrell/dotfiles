@@ -108,7 +108,7 @@ My rules (2026-11-14):
      then reviews, then side work.
    - Report each agent's token count when it ends.
 4. Keep both machines busy (2026-11-15).
-   - Two machines: this desktop and a MacBook Pro (`ssh 192.168.254.18`, user `zpt`; DHCP can move it).
+   - Two machines: this desktop and a MacBook Pro (`ssh mbp`, which points at `Zachs-MacBook-Pro.local` via mDNS, user `zpt`; its IP moves with DHCP).
    - When either has free capacity, start waiting work on it. Don't leave one idle while
      work queues.
    - Machine capacity is separate from the two-agent cap. One agent can drive work on both.
