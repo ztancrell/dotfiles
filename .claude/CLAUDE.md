@@ -17,6 +17,10 @@
   - After I approve an Implementation checkpoint, the agreed scope goes to agents.
   - Agents build only what I approved.
 - Commit and push after each verified merge. Don't let work pile up unpushed.
+- When a feature or program lands, explain how its implementation works (2026-11-23).
+  - Plain words: the steps it takes, the parts involved, how data flows between them.
+  - Short: a few bullets or a small diagram. No code walkthrough unless I ask.
+  - Every agent brief asks for this "how it works" section in the report, so I can relay it.
 
 ## Honesty and scope (every project)
 
