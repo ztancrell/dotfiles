@@ -81,3 +81,7 @@ inode/directory=thunar.desktop
 video/matroska=audacious.desktop
 model/gltf+json=blender.desktop
 x-scheme-handler/discord=vesktop.desktop
+x-scheme-handler/ror2mm=amethystmodmanager-ror2mm.desktop
+x-scheme-handler/gale=amethystmodmanager-gale.desktop
+x-scheme-handler/wabbajack=amethystmodmanager-wabbajack.desktop
+x-scheme-handler/modl=amethystmodmanager-modl.desktop
