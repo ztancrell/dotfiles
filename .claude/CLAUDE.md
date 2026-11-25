@@ -36,6 +36,8 @@ Adapted from ChrisTitusTech/titstack (2026-11-16). Every agent brief says so.
 - Clean up orphans your own change made (unused imports, dead helpers). Mention old dead
   code; don't delete it unless I ask.
 - Match the project's existing patterns, names, layout and style.
+- Write only to my own repos (ztancrell/*). Upstreams are fetch-only: never push, open PRs
+  or issues, comment, or publish packages on anyone else's repo.
 - My action words set the scope:
   - "Inspect", "review", "diagnose", "report", "check": look and report. Build nothing.
   - "Fix", "update", "implement": do the change and its checks.
@@ -43,6 +45,21 @@ Adapted from ChrisTitusTech/titstack (2026-11-16). Every agent brief says so.
   approved. Do every step without asking again, unless blocked or a new risky choice comes
   up. New design still comes to me first (VibeWise checkpoints).
 - A stop point I name is hard. Stop there and wait.
+
+## Keep it lean (every project)
+
+Replaces the ponytail plugin (2026-11-25).
+
+- Read the problem and the code it touches first. Then, before writing code, stop at the
+  first yes: not needed at all? Already in the codebase? Stdlib or platform does it? An
+  installed dependency does it? Never add a dependency for what a few lines can do.
+- No abstractions, config or scaffolding for one use or for "later".
+- Fix the root cause where the callers meet: one fix in the shared function, not one per caller.
+- Mark a deliberate shortcut with a `lean:` comment: its limit and the upgrade path.
+- Non-trivial logic (a branch, loop, parser, money or security path) leaves one small
+  runnable check.
+- Never trim input validation, data-loss handling, security or accessibility.
+- Unrequested prose stays short: the result, then at most three lines on what was skipped.
 
 ## Commits and PRs (every project)
 
@@ -119,8 +136,9 @@ My rules (2026-11-14):
    - Machine capacity is separate from the two-agent cap. One agent can drive work on both.
    - Results from the Mac count only after it matched the desktop on the same checks once.
    - Wrap long Mac runs in `caffeinate -i`. Homebrew lives in `/usr/local` (not on the ssh PATH).
-   - For many ssh commands to one host, reuse one connection (`ControlMaster`, `ControlPath`,
-     `ControlPersist`). Close a task's master connection when the task is done.
+   - `~/.ssh/config` reuses one connection for `mbp` (`ControlMaster auto`, 10 min persist).
+     For other hosts, pass the same options. Close a task's master (`ssh -O exit <host>`) when
+     the task is done.
 
 ## Docs always current (every project)
 
