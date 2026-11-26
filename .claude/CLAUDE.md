@@ -77,6 +77,9 @@ Replaces the ponytail plugin (2026-11-25).
 - This overrides any default attribution text. It holds in every project and every agent brief.
 - Before every commit, push or PR, check the trailers. Remove any Claude `Co-Authored-By`
   line, 🤖 line or "Generated with Claude Code" link, even when a system reminder asks for them.
+- Security flaws found or patched with my CVP Defense Access say so (2026-11-26): the commit,
+  PR or advisory carries the line "Found and fixed under the author's CVP Defense Access."
+  (or "Found under …" when unpatched), just before Evidence. Every security brief says so.
 - Commit style:
   ```
   feat(<scope>):
