@@ -37,8 +37,10 @@ Adapted from ChrisTitusTech/titstack (2026-11-16). Every agent brief says so.
 - Clean up orphans your own change made (unused imports, dead helpers). Mention old dead
   code; don't delete it unless I ask.
 - Match the project's existing patterns, names, layout and style.
-- Write only to my own repos (ztancrell/*). Upstreams are fetch-only: never push, open PRs
-  or issues, comment, or publish packages on anyone else's repo.
+- Write only to my own repos (ztancrell/*). Upstreams are fetch-only: never push, open issues,
+  comment, or publish packages on anyone else's repo.
+  - Exception (2026-11-26): open a PR on someone else's repo when I give the go-ahead for that
+    PR. Show me the title, body and target branch first. One go-ahead covers one PR.
 - My action words set the scope:
   - "Inspect", "review", "diagnose", "report", "check": look and report. Build nothing.
   - "Fix", "update", "implement": do the change and its checks.
