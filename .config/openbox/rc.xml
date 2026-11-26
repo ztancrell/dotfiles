@@ -405,7 +405,7 @@
     </keybind>
     <keybind key="XF86Sleep">
       <action name="Execute">
-        <command>systemctl suspend</command>
+        <command>loginctl suspend</command>
       </action>
     </keybind>
   </keyboard>
