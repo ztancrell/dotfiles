@@ -408,6 +408,21 @@
         <command>loginctl suspend</command>
       </action>
     </keybind>
+    <keybind key="Print">
+      <action name="Execute">
+        <command>/home/zpt/projects/homestead/theme/scripts/homestead-shot full</command>
+      </action>
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute">
+        <command>/home/zpt/projects/homestead/theme/scripts/homestead-shot region</command>
+      </action>
+    </keybind>
+    <keybind key="A-Print">
+      <action name="Execute">
+        <command>/home/zpt/projects/homestead/theme/scripts/homestead-shot window</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
