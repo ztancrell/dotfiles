@@ -24,6 +24,9 @@ if [ -x /opt/Synergy/synergy ]; then
   /opt/Synergy/synergy &
 fi
 
+# solaar (Logitech devices): tray icon only, no window. The Arch package ships no XDG autostart entry.
+command -v solaar >/dev/null && solaar --window=hide &
+
 # wallpaper: my picks instead of the whole Homestead set
 feh --bg-fill --randomize -r ~/.wallpapers/artstation ~/.wallpapers/sst ~/.wallpapers/berserk
 
