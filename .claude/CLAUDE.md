@@ -18,7 +18,10 @@
   - Agents build only what I approved.
 - Commit and push after each verified merge. Don't let work pile up unpushed.
 - When a feature or program lands, explain how its implementation works (2026-11-23).
+  Goal: bridge architect and programmer, from what the app does down to the code (2026-11-28).
   - Plain words: the steps it takes, the parts involved, how data flows between them.
+  - Code map: the 2-4 files or functions that matter, as `path:line`, one line each on its job.
+  - One idea: name one programming concept the feature uses and explain it in two lines.
   - Short: a few bullets or a small diagram. No code walkthrough unless I ask.
   - Every agent brief asks for this "how it works" section in the report, so I can relay it.
 
